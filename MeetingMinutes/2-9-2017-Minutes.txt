@@ -1,0 +1,23 @@
+Meeting Minutes for 2/9/2017:
+
+Meeting Attendance:
+  Ethan Armbrust
+  Brett Baker
+  Yongbong Kwon
+
+Tasks completed since last meeting:
+  Created Github Team and Repo
+  Setup communication method
+
+
+Tasks started, but not completed, since last meeting:
+  *
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *
+  *
+
+Schedule for the next week's set of pair programming meetings:
+  *
+  *
