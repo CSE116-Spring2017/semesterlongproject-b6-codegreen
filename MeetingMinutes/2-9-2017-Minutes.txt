@@ -4,6 +4,7 @@ Meeting Attendance:
   Ethan Armbrust
   Brett Baker
   Yongbong Kwon
+  Mohammed Sefath Chowdhury
 
 Tasks completed since last meeting:
   Created Github Team and Repo
