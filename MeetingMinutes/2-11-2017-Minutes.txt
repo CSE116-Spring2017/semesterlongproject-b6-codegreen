@@ -17,7 +17,7 @@ Tasks started, but not completed, since last meeting:
 Tasks to be worked on (and by which team members) for the next meeting:
   Ethan will work on creating the matrix
   Brett will create the tests for the matrix
-  
+  Yong will create and organize the packages
   
 
 Schedule for the next week's set of pair programming meetings:
