@@ -1,0 +1,25 @@
+Meeting Minutes for _______________:
+
+Meeting Attendance:
+  Ethan Armbrust (M)
+  Brett Baker
+  Yongbong Kwon
+  Mohammed Sefath Chowdhury
+  
+Tasks completed since last meeting:
+  Familiarize with the project requirements
+  *
+
+Tasks started, but not completed, since last meeting:
+  *
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  Ethan will work on creating the matrix
+  Brett will create the tests for the matrix
+  
+  
+
+Schedule for the next week's set of pair programming meetings:
+  *
+  *
