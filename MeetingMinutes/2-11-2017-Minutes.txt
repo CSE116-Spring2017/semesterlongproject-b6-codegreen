@@ -1,4 +1,4 @@
-Meeting Minutes for _______________:
+Meeting Minutes for 2/11/2017:
 
 Meeting Attendance:
   Ethan Armbrust (M)
