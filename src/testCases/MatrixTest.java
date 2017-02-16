@@ -1,6 +1,7 @@
 package testCases;
 
 import static org.junit.Assert.*;
+import pixelMatrix.PixelMatrix;
 
 import org.junit.Test;
 
@@ -18,55 +19,48 @@ public class MatrixTest {
 	 * been written. Those lines of code will be commented out until then.
 	 */
 	
-	int matrixRows;
-	int matrixColumns;
-	int[][] canvas;
+	int _matrixRows;
+	int _matrixColumns;
+	PixelMatrix _canvas;
+	int[][] _grid;
 	
 	@Test
-	public static void correctNumberOfRows() {
-		matrixRows = 1;
-		matrixColumns = 179;
-		
-		/// nombc stands for "name of matrix building class ; bm stands for "builder method"
-		
-	///	canvas = [insert nombc here].[insert bm name here](matrixRows,matrixColumns);
-	///	assertEquals(matrixRows,canvas.length);
+	public void correctNumberOfRows() {
+		_matrixRows = 1;
+		_matrixColumns = 179;
+		_canvas = new PixelMatrix(_matrixRows,_matrixColumns);
+		_grid = _canvas.giveGrid();
+		assertEquals(_matrixRows,_grid.length);
 	}
 	
 	@Test
-	public static void correctNumberOfColumns() {
-		matrixRows = 37;
-		matrixColumns = 3;
-		
-		/// nombc stands for "name of matrix building class ; bm stands for "builder method"
-		
-	///	canvas = /*insert nombc here*/./*insert bm name here*/(matrixRows,matrixColumns);
-	///	assertEquals(matrixRows,canvas[0].length);
+	public void correctNumberOfColumns() {
+		_matrixRows = 37;
+		_matrixColumns = 3;
+		_canvas = new PixelMatrix(_matrixRows,_matrixColumns);
+		_grid = _canvas.giveGrid();
+		assertEquals(_matrixColumns,_grid[0].length);
 	}
 	
 	@Test
-	public static void negativeSize() {
-		matrixRows = 12;
-		matrixColumns = -5;
-		
+	public void negativeSize() {
 		/* this method assumes that, if the builder is given a negative number, it will
 		 * negate it
 		 */
-		
-		/// nombc stands for "name of matrix building class ; bm stands for "builder method"
-		
-	///	canvas = /*insert nombc here*/./*insert bm name here*/(matrixRows,matrixColumns);
-	///	assertEquals(matrixRows,(canvas[0].length * -1));
+		_matrixRows = 12;
+		_matrixColumns = -5;
+		int correctColumns = 5;
+		_canvas = new PixelMatrix(_matrixRows,_matrixColumns);
+		_grid = _canvas.giveGrid();
+		assertEquals(correctColumns,_grid[0].length);
 	}
 	
 	@Test
-	public static void zeroSize() {
-		matrixRows = 0;
-		matrixColumns = 179;
-		
-		/// nombc stands for "name of matrix building class ; bm stands for "builder method"
-		
-	///	canvas = [insert nombc here].[insert bm name here](matrixRows,matrixColumns);
-	///	assertEquals(matrixRows,canvas.length);
+	public void zeroSize() {
+		_matrixRows = 0;
+		_matrixColumns = 179;
+		_canvas = new PixelMatrix(_matrixRows,_matrixColumns);
+		_grid = _canvas.giveGrid();
+		assertEquals(_matrixRows,_grid.length);
 	}
 }
