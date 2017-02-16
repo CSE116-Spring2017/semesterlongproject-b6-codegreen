@@ -1,7 +1,7 @@
 Meeting Minutes for 2/9/2017:
 
 Meeting Attendance:
-  Ethan Armbrust
+  Ethan Armbrust (M)
   Brett Baker
   Yongbong Kwon
   Mohammed Sefath Chowdhury
@@ -12,13 +12,13 @@ Tasks completed since last meeting:
 
 
 Tasks started, but not completed, since last meeting:
-  *
-  *
+  
+  
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
-  *
+  Completely read over project description
+  Begin Phase 1
+  
 
 Schedule for the next week's set of pair programming meetings:
-  *
-  *
+  Saturday 2/11
