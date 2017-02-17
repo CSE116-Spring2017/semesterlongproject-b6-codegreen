@@ -22,4 +22,31 @@ public class PixelMatrix {
 		retVal = _m;
 		return retVal;
 	}
+	
+	public int[][] mandlebrotEscapes(int distance, int maxSteps){
+		int[][] retVal = new int[_m.length][_m[0].length];
+		
+		for(int x = 0; x < _m.length; x++){
+			for(int y = 0; y < _m.length; y++){
+				int xCalc = x;
+				int yCalc = y;
+				
+				double dist = Math.sqrt((x*x) + (y*y));
+				int passes = 0;
+				while(dist < 4 && passes < 255){
+					int tempX = xCalc;
+					int tempY = yCalc;
+					//change these for each different set
+					xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
+					yCalc = 2 * xCalc * yCalc + tempY;
+					
+					passes++;
+					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+				}
+				retVal[x][y] = passes;
+			}
+		}
+		return retVal;
+	}
+	
 }
