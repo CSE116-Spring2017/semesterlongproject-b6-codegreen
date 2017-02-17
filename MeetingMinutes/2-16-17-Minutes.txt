@@ -15,7 +15,8 @@ Tasks started, but not completed, since last meeting:
 
 Tasks to be worked on (and by which team members) for the next meeting:
   *Ethan will start and complete a class for the MandelBrot set
-  *
+  *Yong will complete his controlBoard class
+  *Brett will start and complete Burning Ship set
 
 Schedule for the next week's set of pair programming meetings:
   *
