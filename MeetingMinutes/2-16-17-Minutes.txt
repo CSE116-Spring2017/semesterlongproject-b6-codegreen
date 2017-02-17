@@ -1,20 +1,20 @@
 Meeting Minutes for _______________:
 
 Meeting Attendance:
-  *
-  *
-  *
+  *Yong
+  *Brett
+  *Ethan
 
 Tasks completed since last meeting:
-  *
-  *
+  *Brett created a Test Class for a class that constructs a matrix of specified length and width
+  *Ethan created a PixelMatrix class that allowed for specified length and width and passed the test cases
 
 Tasks started, but not completed, since last meeting:
   *
   *
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
+  *Ethan will start and complete a class for the MandelBrot set
   *
 
 Schedule for the next week's set of pair programming meetings:
