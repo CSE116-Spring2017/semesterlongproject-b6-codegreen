@@ -33,7 +33,7 @@ public class PixelMatrix {
 				
 				double dist = Math.sqrt((x*x) + (y*y));
 				int passes = 0;
-				while(dist < 4 && passes < 255){
+				while(dist <= 4 && passes < 255){
 					int tempX = xCalc;
 					int tempY = yCalc;
 					//change these for each different set
@@ -47,6 +47,61 @@ public class PixelMatrix {
 			}
 		}
 		return retVal;
+	
+	//:D
 	}
+	
+	 public int[][] juliaEscapes(int distance, int maxSteps){
+		int[][] retVal = new int[_m.length][_m[0].length];
+		
+		for(int x = 0; x < _m.length; x++){
+			for(int y = 0; y < _m.length; y++){
+				double xCalc = x;
+				double yCalc = y;
+				
+				double dist = Math.sqrt((x*x) + (y*y));
+				int passes = 0;
+				while(dist <= 4 && passes < 255){
+					double tempX = xCalc;
+					double tempY = yCalc;
+					//change these for each different set
+					xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+					yCalc = 2 * xCalc * yCalc + 0.188887;
+					
+					passes++;
+					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+				}
+				retVal[x][y] = passes;
+			}
+		}
+		return retVal;
+	
+	
+	}
+	
+	 public int[][] burningShipEscapes(int distance, int maxSteps){
+			int[][] retVal = new int[_m.length][_m[0].length];
+			
+			for(int x = 0; x < _m.length; x++){
+				for(int y = 0; y < _m.length; y++){
+					int xCalc = x;
+					int yCalc = y;
+					
+					double dist = Math.sqrt((x*x) + (y*y));
+					int passes = 0;
+					while(dist <= 4 && passes < 255){
+						int tempX = xCalc;
+						int tempY = yCalc;
+						xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
+						yCalc = Math.abs(2*tempX*tempY);
+						passes++;
+						dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+					}
+					retVal[x][y] = passes;
+				}
+			}
+			return retVal;
+		}
+	
 	
 }
