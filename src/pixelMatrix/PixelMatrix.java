@@ -33,7 +33,7 @@ public class PixelMatrix {
 				
 				double dist = Math.sqrt((x*x) + (y*y));
 				int passes = 0;
-				while(dist <= 4 && passes < 255){
+				while(dist <= distance && passes < maxSteps){
 					int tempX = xCalc;
 					int tempY = yCalc;
 					//change these for each different set
@@ -61,7 +61,7 @@ public class PixelMatrix {
 				
 				double dist = Math.sqrt((x*x) + (y*y));
 				int passes = 0;
-				while(dist <= 4 && passes < 255){
+				while(dist <= distance && passes < maxSteps){
 					double tempX = xCalc;
 					double tempY = yCalc;
 					//change these for each different set
@@ -89,7 +89,7 @@ public class PixelMatrix {
 					
 					double dist = Math.sqrt((x*x) + (y*y));
 					int passes = 0;
-					while(dist <= 4 && passes < 255){
+					while(dist <= distance && passes < maxSteps){
 						int tempX = xCalc;
 						int tempY = yCalc;
 						xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
