@@ -1,9 +1,10 @@
-package testCases;
+package tests;
 
 import static org.junit.Assert.*;
-import pixelMatrix.PixelMatrix;
 
 import org.junit.Test;
+
+import code.PixelMatrix;
 
 // import [insert name of code package].[insert name of matrix building class]*/;
 

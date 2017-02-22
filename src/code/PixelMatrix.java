@@ -1,4 +1,4 @@
-package pixelMatrix;
+package code;
 
 public class PixelMatrix {
 	
@@ -33,7 +33,7 @@ public class PixelMatrix {
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m.length; y++){
 				double xCalc = xMin + (x * xStep);
-				double yCalc = yMin + (y * yStep);
+				double yCalc = yMax - (y * yStep);
 				
 				double dist = Math.sqrt((x*x) + (y*y));
 				int passes = 0;
@@ -55,34 +55,33 @@ public class PixelMatrix {
 	//:D
 	}
 	
-	 public int[][] juliaEscapes(int distance, int maxSteps){
-		int[][] retVal = new int[_m.length][_m[0].length];
-		
-		for(int x = 0; x < _m.length; x++){
-			for(int y = 0; y < _m.length; y++){
-				double xCalc = x;
-				double yCalc = y;
-				
-				double dist = Math.sqrt((x*x) + (y*y));
-				int passes = 0;
-				while(dist <= distance && passes < maxSteps){
-					double tempX = xCalc;
-					double tempY = yCalc;
-					//change these for each different set
-					xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
-					yCalc = 2 * tempX * tempY + 0.188887;
+	 public int[][] juliaEscapes(double distance, double maxSteps, double xMin, double xMax, double yMin, double yMax ){
+			int[][] retVal = new int[_m.length][_m[0].length];
+			
+			double xStep = (xMax - xMin) / _xDim;
+			double yStep = (yMax - yMin) / _yDim;
+			
+			for(int x = 0; x < _m.length; x++){
+				for(int y = 0; y < _m.length; y++){
+					double xCalc = xMin + (x * xStep);
+					double yCalc = yMax - (y * yStep);
 					
-					passes++;
-					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+					double dist = Math.sqrt((x*x) + (y*y));
+					int passes = 0;
+					while(dist <= distance && passes < maxSteps){
+						double tempX = xCalc;
+						double tempY = yCalc;
+						xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
+						yCalc = 2 * tempX * tempY + tempY;
+						
+						passes++;
+						dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+					}
+					retVal[x][y] = passes;
 				}
-				retVal[x][y] = passes;
 			}
+			return retVal;
 		}
-		return retVal;
-	
-	
-	}
-	
 	public int[][] burningShipEscapes(double distance, double maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
@@ -92,7 +91,7 @@ public class PixelMatrix {
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m.length; y++){
 				double xCalc = xMin + (x * xStep);
-				double yCalc = yMin + (y * yStep);
+				double yCalc = yMax - (y * yStep);
 				
 				double dist = Math.sqrt((x*x) + (y*y));
 				int passes = 0;
