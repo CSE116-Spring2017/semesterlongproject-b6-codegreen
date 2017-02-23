@@ -6,19 +6,7 @@ import org.junit.Test;
 
 import code.PixelMatrix;
 
-// import [insert name of code package].[insert name of matrix building class]*/;
-
-public class MatrixTest {
-	
-	/* This code assumes that the class that will build the matrix will contain a method that will
-	 * take two arguments, one to designate the matrix' length, and one to designate its width.
-	 * If you guys need me to change something to work with the matrix builder that hasn't been written
-	 * yet just text me. I'll check up before the week is over to make sure it works once the
-	 * builder class has been written.
-	 * 
-	 * There are several lines of code that cause errors now, but will work once the builder class has
-	 * been written. Those lines of code will be commented out until then.
-	 */
+public class GridSizeTests {
 	
 	int _matrixRows;
 	int _matrixColumns;
