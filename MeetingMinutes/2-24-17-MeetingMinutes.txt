@@ -24,4 +24,4 @@ Tasks to be worked on (and by which team members) for the next meeting:
   -write test for 512 columns and 512 rows for each escape method
   
 Schedule for the next week's set of pair programming meetings:
-  Thursday 03/02/17 6:00pm
+  Thursday 02/25/17 12:00pm
