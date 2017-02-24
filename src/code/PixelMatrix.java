@@ -129,14 +129,16 @@ public class PixelMatrix {
 			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
 				double yCalc = yMax - (y * yStep);
+				double origX = xCalc;
+				double origY = yCalc;
 				
 				double dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));
 				int passes = 0;
 				while(dist <= maxDistance && passes < maxSteps){
 					double tempX = xCalc;
 					double tempY = yCalc;
-					xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
-					yCalc = Math.abs(2*tempX*tempY);
+					xCalc = (tempX * tempX) - (tempY * tempY) + origX;
+					yCalc = Math.abs(2*tempX*tempY) + origY;
 					passes++;
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
