@@ -6,10 +6,15 @@ import org.junit.Test;
 
 import code.PixelMatrix;
 
+/*  test runs for horizontal and vertical coordinates with min & max escape duration
+ * @author Yongbong Kwon
+ *  
+ */
 public class JuliaEscapesTest {
 
 	/*
 	 * create an instance of the matrix painting class
+	 *
 	 */
 	PixelMatrix _canvas;
 	
@@ -20,7 +25,7 @@ public class JuliaEscapesTest {
 	public void maxEscapeTime() {
 		int[] xy = new int[2];
 		_canvas = new PixelMatrix(512,512);
-		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		int[][] testGrid = _canvas.juliaEscapes(2, 255, -1., 1.7, -1.0, 1.0);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
 				System.out.print(testGrid[i][j] + " ");
@@ -41,7 +46,7 @@ public class JuliaEscapesTest {
 	public void minEscapeTime() {
 		int[] xy = new int[2];
 		_canvas = new PixelMatrix(512,512);
-		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		int[][] testGrid = _canvas.juliaEscapes(2, 255, -1., 1.7, -1.0, 1.0);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
 				if (testGrid[i][j] == 1) {
