@@ -18,9 +18,10 @@ Tasks to be worked on (and by which team members) for the next meeting:
   Yong will:
   -write JuliaEscapesTest
   Ethan will:
-  -write test for 512 columns and 512 rows for each escape method
+  
   All will:
   -javadoc written code
+  -write test for 512 columns and 512 rows for each escape method
   
 Schedule for the next week's set of pair programming meetings:
   Thursday 03/02/17 6:00pm
