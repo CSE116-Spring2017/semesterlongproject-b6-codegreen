@@ -18,7 +18,11 @@ Tasks to be worked on (and by which team members) for the next meeting:
   Mohammed will do:
   -Multibrot Set
   -Tests for Julia Set and Multibrot Set
-  
+  Brett will do:
+  -pixel translation test
+  -Tests for mandelbrot set
+  Ethan will do:
+  -burning ship tests
 
 Schedule for the next week's set of pair programming meetings:
   Friday 2/24

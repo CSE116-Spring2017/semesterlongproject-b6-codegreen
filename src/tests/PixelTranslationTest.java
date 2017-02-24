@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import code.PixelMatrix;
 
-public class MandlebrotEscapesTests {
+public class PixelTranslationTest {
 	
 	PixelMatrix _canvas;
 	
