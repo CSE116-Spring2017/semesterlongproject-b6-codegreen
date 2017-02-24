@@ -110,5 +110,33 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
+	public int[][] Multibrot(double maxDistance, double maxSteps, double xMin, double xMax, double yMin, double yMax){
+		int[][] retVal = new int[_m.length][_m[0].length];
+			
+		double xStep = (xMax - xMin) / _xDim;
+		double yStep = (yMax - yMin) / _yDim;
+			
+		for(int x = 0; x < _m.length; x++){
+			for(int y = 0; y < _m.length; y++){
+				double xCalc = xMin + (x * xStep);
+				double yCalc = yMax - (y * yStep);
+				
+				double dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));
+				int passes = 0;
+				while(dist <= maxDistance && passes < maxSteps){
+					double tempX = xCalc;
+					double tempY = yCalc;
+					xCalc = (tempX * tempX * tempX) - (3* tempX * tempY * tempY) + tempX;
+					yCalc = ((3 * tempX * tempX * tempY) - (tempY * tempY * tempY) );
+					passes++;
+					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
+				}
+				retVal[x][y] = passes;
+			}
+		}
+		return retVal;
+	}
+	
+	
 	
 }
