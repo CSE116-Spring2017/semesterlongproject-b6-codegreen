@@ -12,7 +12,7 @@ public class BurningShipEscapesTests {
 	
 	@Test
 	public void noZeroOrOne() {
-		PixelMatrix p = new PixelMatrix(512,512);
+		PixelMatrix p = new PixelMatrix(24,24);
 		int[][] escapes = p.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025);
 		boolean badValue = false;
 		
@@ -21,7 +21,9 @@ public class BurningShipEscapesTests {
 				if(escapes[x][y] == 0 || escapes[x][y] == 1){
 					badValue = true;
 				}
+				System.out.print(escapes[x][y] + " ");
 			}
+			System.out.println("");
 		}
 		
 		assertFalse(badValue);

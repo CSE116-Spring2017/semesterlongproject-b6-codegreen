@@ -22,7 +22,17 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	// make sure every set has these parameters 
+	 /*
+	  * a method that returns a matrix of the mandlebrot escape time values
+	  * @param maxDistance: distance from the origin that a point will not exceed
+	  * @param maxSteps: maximum times the while loop will execute
+	  * @param xMin: minimum x coordinate
+	  * @param xMax: maximum x coordinate
+	  * @param yMin: minimum y coordinate
+	  * @param yMax: maximum y coordinate
+	  * @return array of escape values
+	  */
+
 	public int[][] mandelbrotEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 		int[][] retVal = _m;
 		
@@ -55,6 +65,16 @@ public class PixelMatrix {
 	
 	//:D
 	}
+	 /*
+	  * a method that returns a matrix of the Julia escape time values
+	  * @param maxDistance: distance from the origin that a point will not exceed
+	  * @param maxSteps: maximum times the while loop will execute
+	  * @param xMin: minimum x coordinate
+	  * @param xMax: maximum x coordinate
+	  * @param yMin: minimum y coordinate
+	  * @param yMax: maximum y coordinate
+	  * @return array of escape values
+	  */
 	
 	 public int[][] juliaEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 			int[][] retVal = new int[_m.length][_m[0].length];
@@ -92,6 +112,7 @@ public class PixelMatrix {
 	  * @param xMax: maximum x coordinate
 	  * @param yMin: minimum y coordinate
 	  * @param yMax: maximum y coordinate
+	  * @return array of escape values
 	  */
 	public int[][] burningShipEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
@@ -120,7 +141,17 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	public int[][] Multibrot(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax){
+	 /*
+	  * a method that returns a matrix of the multibrot escape time values
+	  * @param maxDistance: distance from the origin that a point will not exceed
+	  * @param maxSteps: maximum times the while loop will execute
+	  * @param xMin: minimum x coordinate
+	  * @param xMax: maximum x coordinate
+	  * @param yMin: minimum y coordinate
+	  * @param yMax: maximum y coordinate
+	  * @return array of escape values
+	  */
+	public int[][] multibrotEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
 		double xStep = (xMax - xMin) / _xDim;
@@ -137,7 +168,7 @@ public class PixelMatrix {
 					double tempX = xCalc;
 					double tempY = yCalc;
 					xCalc = (tempX * tempX * tempX) - (3* tempX * tempY * tempY) + tempX;
-					yCalc = ((3 * tempX * tempX * tempY) - (tempY * tempY * tempY) );
+					yCalc = ((3 * tempX * tempX * tempY) - (tempY * tempY * tempY));
 					passes++;
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
