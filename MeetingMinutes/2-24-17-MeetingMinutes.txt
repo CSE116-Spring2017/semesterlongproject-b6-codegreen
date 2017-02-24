@@ -1,0 +1,26 @@
+Meeting Minutes for 2/23/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker (M)
+  Mohammed Sefath Chowdhury
+  Yongbong Kwon
+
+Tasks completed since last meeting:
+  Brett wrote mandelbrot tests
+  Ethan wrote burningship tests
+
+
+Tasks started, but not completed, since last meeting:
+  Mohammed started multibrot tests
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  Yong will:
+  -write JuliaEscapesTest
+  Ethan will:
+  -write test for 512 columns and 512 rows for each escape method
+  All will:
+  -javadoc written code
+  
+Schedule for the next week's set of pair programming meetings:
+  Thursday 03/02/17 6:00pm

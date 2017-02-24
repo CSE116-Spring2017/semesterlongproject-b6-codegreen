@@ -23,6 +23,7 @@ Tasks to be worked on (and by which team members) for the next meeting:
   -Tests for mandelbrot set
   Ethan will do:
   -burning ship tests
+  
 
 Schedule for the next week's set of pair programming meetings:
   Friday 2/24
