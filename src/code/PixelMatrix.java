@@ -23,7 +23,7 @@ public class PixelMatrix {
 	}
 	
 	// make sure every set has these parameters 
-	public int[][] mandlebrotEscapes(double maxDistance, double maxSteps, double xMin, double xMax, double yMin, double yMax ){
+	public int[][] mandelbrotEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 		int[][] retVal = _m;
 		
 			
@@ -56,7 +56,7 @@ public class PixelMatrix {
 	//:D
 	}
 	
-	 public int[][] juliaEscapes(double maxDistance, double maxSteps, double xMin, double xMax, double yMin, double yMax ){
+	 public int[][] juliaEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 			int[][] retVal = new int[_m.length][_m[0].length];
 			
 			double xStep = (xMax - xMin) / _xDim;
@@ -83,7 +83,17 @@ public class PixelMatrix {
 			}
 			return retVal;
 		}
-	public int[][] burningShipEscapes(double maxDistance, double maxSteps, double xMin, double xMax, double yMin, double yMax){
+	 
+	 /*
+	  * a method that returns a matrix of the burning ship escape time values
+	  * @param maxDistance: distance from the origin that a point will not exceed
+	  * @param maxSteps: maximum times the while loop will execute
+	  * @param xMin: minimum x coordinate
+	  * @param xMax: maximum x coordinate
+	  * @param yMin: minimum y coordinate
+	  * @param yMax: maximum y coordinate
+	  */
+	public int[][] burningShipEscapes(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
 		double xStep = (xMax - xMin) / _xDim;
@@ -110,7 +120,7 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	public int[][] Multibrot(double maxDistance, double maxSteps, double xMin, double xMax, double yMin, double yMax){
+	public int[][] Multibrot(double maxDistance, int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
 		double xStep = (xMax - xMin) / _xDim;

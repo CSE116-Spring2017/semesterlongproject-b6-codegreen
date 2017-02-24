@@ -6,16 +6,27 @@ import org.junit.Test;
 
 import code.PixelMatrix;
 
+/*
+ * PixelTranslationTest.java - a testClass that checks the ability of an escape method to translate the x and y coordinates of the matrix to the x and y coordinates on the Cartesian Plane
+ * @author Brett Baker
+ */
+
 public class PixelTranslationTest {
 	
+	/*
+	 * create an instance of the matrix painting class
+	 */
 	PixelMatrix _canvas;
 	
+	/*
+	 * a test that checks if the value of a random chosen x and y coordinate matches the calculated value
+	 */
 	@Test
 	public void pixelCoordinateTranslation() {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512,512);
-		int[][] constant = _canvas.mandlebrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
 		
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;
