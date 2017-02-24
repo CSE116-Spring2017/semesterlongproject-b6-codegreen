@@ -24,6 +24,7 @@ public class PixelMatrix {
 	
 	 /*
 	  * a method that returns a matrix of the mandlebrot escape time values
+	  * @author Ethan Armbrust
 	  * @param maxDistance: distance from the origin that a point will not exceed
 	  * @param maxSteps: maximum times the while loop will execute
 	  * @param xMin: minimum x coordinate
@@ -42,9 +43,11 @@ public class PixelMatrix {
 		double yStep = (yMax - yMin) / _yDim;
 		
 		for(int x = 0; x < _m.length; x++){
-			for(int y = 0; y < _m.length; y++){
+			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
 				double yCalc = yMax - (y * yStep);
+				double origX = xCalc;
+				double origY = yCalc;
 				
 				double dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));
 				int passes = 0;
@@ -52,8 +55,8 @@ public class PixelMatrix {
 					double tempX = xCalc;
 					double tempY = yCalc;
 					//change these for each different set
-					xCalc = (tempX * tempX) - (tempY * tempY) + tempX;
-					yCalc = 2 * tempX * tempY + tempY;
+					xCalc = (tempX * tempX) - (tempY * tempY) + origX;
+					yCalc = 2 * tempX * tempY + origY;
 					
 					passes++;
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
@@ -67,6 +70,7 @@ public class PixelMatrix {
 	}
 	 /*
 	  * a method that returns a matrix of the Julia escape time values
+	  * @author Yongbong Kwon
 	  * @param maxDistance: distance from the origin that a point will not exceed
 	  * @param maxSteps: maximum times the while loop will execute
 	  * @param xMin: minimum x coordinate
@@ -83,7 +87,7 @@ public class PixelMatrix {
 			double yStep = (yMax - yMin) / _yDim;
 			
 			for(int x = 0; x < _m.length; x++){
-				for(int y = 0; y < _m.length; y++){
+				for(int y = 0; y < _m[0].length; y++){
 					double xCalc = xMin + (x * xStep);
 					double yCalc = yMax - (y * yStep);
 					
@@ -106,6 +110,7 @@ public class PixelMatrix {
 	 
 	 /*
 	  * a method that returns a matrix of the burning ship escape time values
+	  * @author Brett Baker
 	  * @param maxDistance: distance from the origin that a point will not exceed
 	  * @param maxSteps: maximum times the while loop will execute
 	  * @param xMin: minimum x coordinate
@@ -121,7 +126,7 @@ public class PixelMatrix {
 		double yStep = (yMax - yMin) / _yDim;
 			
 		for(int x = 0; x < _m.length; x++){
-			for(int y = 0; y < _m.length; y++){
+			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
 				double yCalc = yMax - (y * yStep);
 				
@@ -143,6 +148,7 @@ public class PixelMatrix {
 	
 	 /*
 	  * a method that returns a matrix of the multibrot escape time values
+	  * @author Mohammed Sefath Chowdhury
 	  * @param maxDistance: distance from the origin that a point will not exceed
 	  * @param maxSteps: maximum times the while loop will execute
 	  * @param xMin: minimum x coordinate
@@ -158,7 +164,7 @@ public class PixelMatrix {
 		double yStep = (yMax - yMin) / _yDim;
 			
 		for(int x = 0; x < _m.length; x++){
-			for(int y = 0; y < _m.length; y++){
+			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
 				double yCalc = yMax - (y * yStep);
 				

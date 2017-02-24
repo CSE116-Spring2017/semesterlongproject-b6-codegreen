@@ -28,12 +28,13 @@ public class MandelbrotEscapesTest {
 		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
-				System.out.println(testGrid[i][j]);
+				System.out.print(testGrid[i][j] + " ");
 				if (testGrid[i][j] == 255) {
 					xy[0] = i;
 					xy[1] = j;
 				}
 			}
+			System.out.println("");
 		}
 		assertEquals(testGrid[xy[0]][xy[1]],255);
 	}
