@@ -24,6 +24,7 @@ public class MandelbrotEscapesTest {
 	@Test
 	public void maxEscapeTime() {
 		int[] xy = new int[2];
+		_canvas = new PixelMatrix(512,512);
 		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
@@ -40,10 +41,11 @@ public class MandelbrotEscapesTest {
 	/*
 	 * finds a point whose escape time is the minimum value
 	 */
-	//@Test
+	@Test
 	public void minEscapeTime() {
 		int[] xy = new int[2];
-		int[][] testGrid = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas = new PixelMatrix(512,512);
+		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
 				if (testGrid[i][j] == 1) {
