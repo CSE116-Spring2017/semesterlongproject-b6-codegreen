@@ -1,0 +1,24 @@
+Meeting Minutes for 2/23/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker
+  Mohammed Sefath Chowdhury (M)
+
+Tasks completed since last meeting:
+  Ethan completed a class for the MandelBrot set
+  Yong completed his controlBoard class
+  Brett completed Burning Ship set
+
+
+Tasks started, but not completed, since last meeting:
+  
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  Mohammed will do:
+  -Multibrot Set
+  -Tests for Julia Set and Multibrot Set
+  
+
+Schedule for the next week's set of pair programming meetings:
+  Friday 2/24
