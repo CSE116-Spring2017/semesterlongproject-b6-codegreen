@@ -1,0 +1,19 @@
+Meeting Minutes for 3/2/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker 
+  Mohammed Sefath Chowdhury (M)
+  Yongbong Kwon
+
+Tasks completed since last meeting:
+ Brett completed mandelbrot tests
+ Ethan completed burningship tests
+ Phase one submitted
+
+
+Tasks to be worked on (and by which team members) for the next meeting:
+ Continue phase two of project
+  
+Schedule for the next week's set of pair programming meetings:
+  TBD
