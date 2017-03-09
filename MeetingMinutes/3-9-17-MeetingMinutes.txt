@@ -1,0 +1,18 @@
+Meeting Minutes for 3/2/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker (M)
+  Mohammed Sefath Chowdhury
+  Yongbong Kwon
+
+Tasks completed since last meeting:
+N/A
+
+Tasks to be worked on (and by which team members) for the next meeting:
+ -Ethan: implement user escape time adjustment
+ -Yong: Add menu items on JPanel
+ -Sefath: Finish JPanel Structure
+ -Brett: Create event handlers for menu items and functions 
+Schedule for the next week's set of pair programming meetings:
+  03/15/17: All meet at 5:00pm
