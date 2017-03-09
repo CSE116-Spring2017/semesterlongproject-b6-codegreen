@@ -9,6 +9,7 @@ Meeting Attendance:
 Tasks completed since last meeting:
  Brett completed mandelbrot tests
  Ethan completed burningship tests
+ Yongbong completed julia tests
  Phase one submitted
 
 
