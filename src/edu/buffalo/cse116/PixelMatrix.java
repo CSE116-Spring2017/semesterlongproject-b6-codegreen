@@ -186,6 +186,16 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
+	@Override
+	public void notifyObservers() {
+		for (Observer o : _observers) {
+			o.update();
+		}
+	}
+
+	@Override
+	public void addObserver(Observer o) {
+		_observers.add(o);
 	
 	
 }
