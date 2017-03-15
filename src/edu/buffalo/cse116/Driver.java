@@ -1,6 +1,6 @@
-package edu.buffalo.cse116.model;
+package edu.buffalo.cse116;
 
-import ui.*;
+import edu.buffalo.cse116.ui.*;
 
 /**
  * Creates the Model, the UI, and links them together.
