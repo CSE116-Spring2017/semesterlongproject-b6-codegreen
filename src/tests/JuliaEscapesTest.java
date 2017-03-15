@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import code.PixelMatrix;
+import edu.buffalo.cse116.PixelMatrix;
 
 /*  test runs for horizontal and vertical coordinates with min & max escape duration
  * @author Yongbong Kwon

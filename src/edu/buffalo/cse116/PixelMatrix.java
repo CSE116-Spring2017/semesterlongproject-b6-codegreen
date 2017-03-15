@@ -1,4 +1,6 @@
-package code;
+package edu.buffalo.cse116;
+
+import observer_pattern.Observer;
 
 public class PixelMatrix {
 	
@@ -196,6 +198,6 @@ public class PixelMatrix {
 	@Override
 	public void addObserver(Observer o) {
 		_observers.add(o);
-	
+	}
 	
 }

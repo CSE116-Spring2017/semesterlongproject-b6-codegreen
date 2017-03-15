@@ -1,4 +1,4 @@
-package edu.buffalo.cse116.;
+package edu.buffalo.cse116;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

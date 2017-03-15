@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import code.PixelMatrix;
+import edu.buffalo.cse116.PixelMatrix;
 
 public class GridSizeTests {
 	

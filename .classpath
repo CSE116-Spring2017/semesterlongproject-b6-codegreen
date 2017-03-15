@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="src/edu/buffalo/cse116/FractalPanel.jar"/>
-=======
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/itcs.ethanarm/git/semesterlongproject-b6-codegreen/src/FractalPanel.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

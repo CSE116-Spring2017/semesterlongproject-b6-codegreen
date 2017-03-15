@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import code.PixelMatrix;
+import edu.buffalo.cse116.PixelMatrix;
 
 /*
  * PixelTranslationTest.java - a testClass that checks the ability of an escape method to translate the x and y coordinates of the matrix to the x and y coordinates on the Cartesian Plane

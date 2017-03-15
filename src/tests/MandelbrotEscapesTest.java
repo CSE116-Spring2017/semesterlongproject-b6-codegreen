@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import code.PixelMatrix;
+import edu.buffalo.cse116.PixelMatrix;
 
 /*
  * A class that tests for coordinates with the maximum and minimum escape times

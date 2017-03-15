@@ -1,9 +1,10 @@
-package ui;
+package edu.buffalo.cse116.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Model;
+
+import edu.buffalo.cse116.*;
 
 public class ButtonHandler implements ActionListener {
 
@@ -11,7 +12,7 @@ public class ButtonHandler implements ActionListener {
 	 * when the button has been pressed. */
 	PixelMatrix _model;
 	
-	public NumberButtonHandler(PixelMatrix m) {
+	public ButtonHandler(PixelMatrix m) {
 		_model = m;
 	}
 	

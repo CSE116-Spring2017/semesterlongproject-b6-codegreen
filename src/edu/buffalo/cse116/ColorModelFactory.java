@@ -1,4 +1,4 @@
-package code;
+package edu.buffalo.cse116;
 
 import java.awt.Color;
 import java.awt.image.IndexColorModel;
