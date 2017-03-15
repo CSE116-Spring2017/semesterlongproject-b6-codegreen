@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/itcs.ethanarm/git/semesterlongproject-b6-codegreen/src/FractalPanel.jar"/>
+	<classpathentry kind="lib" path="C:/Users/brett/Downloads/FractalPanel.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
