@@ -1,6 +1,5 @@
 package edu.buffalo.cse116;
 
-import observer_pattern.Observer;
 
 public class PixelMatrix {
 	
@@ -8,6 +7,7 @@ public class PixelMatrix {
 	int[][] _m;
 	int _xDim;
 	int _yDim;
+	FractalGUI _observer;
 	
 	public PixelMatrix(int x, int y){
 		if (x<0) {x = x * -1;}
@@ -188,16 +188,12 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	@Override
-	public void notifyObservers() {
-		for (Observer o : _observers) {
-			o.update();
-		}
+	public void updateObserver() {
+		_observer.update();
 	}
 
-	@Override
-	public void addObserver(Observer o) {
-		_observers.add(o);
+	public void addObserver(FractalGUI o) {
+		_observer = o;
 	}
 	
 }
