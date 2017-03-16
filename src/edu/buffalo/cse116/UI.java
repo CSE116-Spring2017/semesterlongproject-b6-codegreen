@@ -46,7 +46,7 @@ public class UI implements ActionListener {
 			close.setActionCommand("fclose");
 			file.add(close);		
 			//Color
-			JMenuItem color = new JMenu("Color");
+			JMenu color = new JMenu("Color");
 			color.setMnemonic(KeyEvent.VK_R);
 			color.addActionListener(eh);
 			menuBar.add(color);
@@ -70,7 +70,7 @@ public class UI implements ActionListener {
 			menuBar.add(fractal);
 			//Fractal sets ( 4 )
 			JMenuItem manE = new JMenuItem("Mandelbrot");
-			manE.addActionListener(eh);
+			//manE.addmenuSelected(eh);
 			manE.setActionCommand("mandelbrotEscapes");
 			fractal.add(manE);
 			JMenuItem julE = new JMenuItem("Julia");

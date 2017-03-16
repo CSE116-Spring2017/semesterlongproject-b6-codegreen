@@ -10,7 +10,6 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		UI gui = new UI();
-		//MenuuUI frm = new MenuuUI ();
 		/* Notice that the Model will finish initializing first before the UI's constructor is even called.
 		 * This means we'll be safe to call methods on the Model in the UI right away. */
 		

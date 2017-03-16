@@ -3,6 +3,7 @@ package edu.buffalo.cse116;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.event.MenuEvent;
 
@@ -13,6 +14,10 @@ public class EventHandler implements ActionListener  {
 	public EventHandler(PixelMatrix p, int x, int y){
 		_pix = p;
 	}
+	
+	//@Override public void actionPerformed(ActionEvent e){
+		
+	//}
     //public void actionPerformed(ActionEvent e) {            
        // .setText(e.getActionCommand() 
        //    + " MenuItem clicked.");
@@ -20,7 +25,8 @@ public class EventHandler implements ActionListener  {
 		public void keyPressed(KeyEvent ke) {
 			
 			if(ke.getKeyChar()== 'x'){
-				System.exit(0);}
+				System.exit(0);
+				}
 			if(ke.getKeyChar()== 'r'){
 				//gotta add some
 				//do the job
@@ -37,7 +43,7 @@ public class EventHandler implements ActionListener  {
 			// TODO Auto-generated method stub			
 		}
 		//program exit
-		public void menuSelected(ActionEvent e){
+		public void menuSelected(){
 			d = new UI();
 			/*if (e.getActionCommand().equals("fopen")){
 				System.exit(0);
@@ -47,7 +53,7 @@ public class EventHandler implements ActionListener  {
 			if (e.getActionCommand().equals("fclose")){
 				System.exit(0);				
 			}			
-			if (e.getActionCommand().equals("clr1")){
+			if (e.getActionCommand().equals("clr1")){				
 				System.out.println("clr1 clicked");
 			}
 			if (e.getActionCommand().equals("clr2")){
