@@ -7,7 +7,7 @@ public class PixelMatrix {
 	int[][] _m;
 	int _xDim;
 	int _yDim;
-	FractalGUI _observer;
+	UI _observer;
 	
 	public PixelMatrix(int x, int y){
 		if (x<0) {x = x * -1;}
@@ -192,7 +192,7 @@ public class PixelMatrix {
 		_observer.update();
 	}
 
-	public void addObserver(FractalGUI o) {
+	public void addObserver(UI o) {
 		_observer = o;
 	}
 	
