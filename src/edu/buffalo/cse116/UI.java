@@ -6,17 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
 
-import observer_pattern.*;
 import edu.buffalo.cse116.PixelMatrix;
 
 
-public class UI implements Observer, ActionListener {
+public class UI implements ActionListener {
 	
 	
 	/*----------------||||------------------------------------------||||-------
-	 * ---------------||||----under this lane, it is yong's lane----||||-------
+	 * ---------------||||----under eh lane, it is yong's lane----||||-------
 	 * ---------------VVVV------------------------------------------VVVV-------*/
 	
 	PixelMatrix _model;
@@ -27,62 +25,64 @@ public class UI implements Observer, ActionListener {
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
+	private EventHandler eh;
 	
 	public UI(){
+		
 			JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
 			_window = new JFrame();		
 			//file
 			JMenu file= new JMenu("File");
-			file.addActionListener(this);
+			file.addActionListener(eh);
 			menuBar.add(file);
 			//file-open
 			JMenuItem open= new JMenuItem("File Open");
-			open.addActionListener(this);
+			open.addActionListener(eh);
 			open.setActionCommand("fopen");
 			file.add(open);
 			//file-close
 			JMenuItem close= new JMenuItem("File Close");
-			close.addActionListener(this);
+			close.addActionListener(eh);
 			close.setActionCommand("fclose");
 			file.add(close);		
 			//Color
 			JMenuItem color = new JMenu("Color");
 			color.setMnemonic(KeyEvent.VK_R);
-			color.addActionListener(this);
+			color.addActionListener(eh);
 			menuBar.add(color);
 			//color sets ( 3 )
 			JMenuItem clr1 = new JMenuItem("Color 1");
-			clr1.addActionListener(this);
+			clr1.addActionListener(eh);
 			clr1.setActionCommand("clr1");
 			color.add(clr1);
 			JMenuItem clr2 = new JMenuItem("Color 2");
-			clr2.addActionListener(this);
+			clr2.addActionListener(eh);
 			clr2.setActionCommand("clr2");
 			color.add(clr2);
 			JMenuItem clr3 = new JMenuItem("Color 3");
-			clr3.addActionListener(this);
+			clr3.addActionListener(eh);
 			clr3.setActionCommand("clr3");
 			color.add(clr3);	
 			//Fractal
 			JMenu fractal = new JMenu("Fractal Escapes");
 			fractal.setMnemonic(KeyEvent.VK_F);
-			fractal.addActionListener(this);
+			fractal.addActionListener(eh);
 			menuBar.add(fractal);
 			//Fractal sets ( 4 )
 			JMenuItem manE = new JMenuItem("Mandelbrot");
-			manE.addActionListener(this);
+			manE.addActionListener(eh);
 			manE.setActionCommand("mandelbrotEscapes");
 			fractal.add(manE);
 			JMenuItem julE = new JMenuItem("Julia");
-			julE.addActionListener(this);
+			julE.addActionListener(eh);
 			julE.setActionCommand("juliaEscapes");
 			fractal.add(julE);
 			JMenuItem burE = new JMenuItem("BurningShip");
-			burE.addActionListener(this);
+			burE.addActionListener(eh);
 			burE.setActionCommand("burningShipEscapes");
 			fractal.add(burE);
 			JMenuItem mulE = new JMenuItem("Multibrot");
-			mulE.addActionListener(this);
+			mulE.addActionListener(eh);
 			mulE.setActionCommand("multibrotEscapes");
 			fractal.add(mulE);
 			menuBar.setLayout(new FlowLayout());
@@ -91,7 +91,7 @@ public class UI implements Observer, ActionListener {
 			
 			
 /*----------------^^^^------------------------------------------^^^^-------
- * ---------------||||----above this lane, it is yong's lane----||||-------
+ * ---------------||||----above eh lane, it is yong's lane----||||-------
  * ---------------||||------------------------------------------||||-------*/
 			
 			
@@ -124,7 +124,7 @@ public class UI implements Observer, ActionListener {
 			
 			/* The UI is taking care of itself here - it's making sure the model
 			 * will know to call it when it's time for visual updates. */
-			//_model.addObserver(this);
+			//_model.addObserver(eh);
 			
 			// Perform some setup tasks that only need to be done once.
 	
@@ -137,7 +137,7 @@ public class UI implements Observer, ActionListener {
 		//JButton thickness = new JButton("Increase Thickness");
 		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
-		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
+		 * Doing eh is much more convenient than creating a whole separate class and setting up an association 
 		 * relationship with UI. */
 		/*thickness.addActionListener(new ActionListener(){
 			
@@ -168,7 +168,7 @@ public class UI implements Observer, ActionListener {
 		JButton thickness = new JButton("Increase Thickness");
 		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
-		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
+		 * Doing eh is much more convenient than creating a whole separate class and setting up an association 
 		 * relationship with UI. */
 		/*thickness.addActionListener(new ActionListener())
 			@Override
@@ -185,51 +185,10 @@ public class UI implements Observer, ActionListener {
 
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-
-	@Override
-	public void keyPressed(KeyEvent ke) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void menuDeselected(MenuEvent me) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void menuCanceled(MenuEvent me) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void menuSelected(MenuEvent me) {
-		// TODO Auto-generated method stub
-		
-	}
 	}
 	
