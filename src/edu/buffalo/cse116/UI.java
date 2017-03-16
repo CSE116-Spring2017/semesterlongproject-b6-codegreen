@@ -63,6 +63,10 @@ public class UI implements ActionListener {
 			clr3.addActionListener(eh);
 			clr3.setActionCommand("clr3");
 			color.add(clr3);	
+			JMenuItem clr4 = new JMenuItem("Color 4");
+			clr4.addActionListener(eh);
+			clr4.setActionCommand("clr4");
+			color.add(clr4);
 			//Fractal
 			JMenu fractal = new JMenu("Fractal Escapes");
 			fractal.setMnemonic(KeyEvent.VK_F);
