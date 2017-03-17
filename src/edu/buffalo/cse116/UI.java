@@ -1,13 +1,17 @@
 package edu.buffalo.cse116;
 
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import javax.swing.*;
 
-import edu.buffalo.cse116.PixelMatrix;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
+import edu.buffalo.fractal.FractalPanel;
 
 
 public class UI implements ActionListener {
@@ -92,8 +96,6 @@ public class UI implements ActionListener {
 			menuBar.setLayout(new FlowLayout());
 			_window.setJMenuBar(menuBar);
 			_window.add(menuBar);
-			
-			
 /*----------------^^^^------------------------------------------^^^^-------
  * ---------------||||----above eh lane, it is yong's lane----||||-------
  * ---------------||||------------------------------------------||||-------*/
@@ -101,13 +103,17 @@ public class UI implements ActionListener {
 			
 			// Give the main panel two sections (two rows, one column)
 		
-			_mainPanel = new JPanel();
+		/*	_mainPanel = new JPanel();
 			_mainPanel.setSize(300, 300);
-			_mainPanel.setLayout(new GridLayout(300,300));					
-			// Set up the JPanel and GridLayout where the grid of buttons will go			
-			JButton increase = new JButton("Increase Numbers");
-			increase.setLayout(new GridLayout(3,1));		
-			_mainPanel.add(increase);		
+			_mainPanel.setLayout(new GridLayout(300,300));			*/	
+			
+			
+			
+			
+			_model = new PixelMatrix(512,512);
+			_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3),ColorModelFactory.createRainbowColorModel(256)));
+			
+			
 			
 			//increase.addActionListener(new NumberButtonHandler(_model));	
 		//	JButton thickness = new JButton("Increase Thickness");
@@ -118,7 +124,7 @@ public class UI implements ActionListener {
 	        	use.PixelMatrix(e.getActionCommand());
 			*
 			*/
-			_window.add(_mainPanel);
+			//_window.add(_mainPanel);
 			_window.pack();
 			_window.setVisible(true);
 			
