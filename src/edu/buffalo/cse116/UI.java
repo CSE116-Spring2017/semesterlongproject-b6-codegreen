@@ -6,16 +6,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.IndexColorModel;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-
-import edu.buffalo.cse116.ColorModelFactory;
-import edu.buffalo.cse116.FractalCanvas;
-import edu.buffalo.cse116.PixelMatrix;
-import edu.buffalo.fractal.FractalPanel;
+import javax.swing.JTextField;
 
 
 
@@ -34,12 +31,14 @@ public class UI implements ActionListener {
 	JPanel _buttonGrid;
 	FractalCanvas _fc;
 	IndexColorModel _icm;
+	private int _escapeDistance;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
 	
 	public UI(){
 		
+		_escapeDistance = 2;
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
         _window = new JFrame("Fractals");  
         _icm = ColorModelFactory.createRainbowColorModel(256);
@@ -59,7 +58,7 @@ public class UI implements ActionListener {
               System.exit(0);
            }
         });
-        file.add(close);    
+        file.add(close); 
         //
         //
         //Color
@@ -134,7 +133,7 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               
-              _fc.setFractal(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3));
+              _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -151,7 +150,7 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   //_model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
-              _fc.setFractal(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0));
+              _fc.setFractal(_model.juliaEscapes( 255, -1.7, 1.7, -1.0, 1.0));
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -169,7 +168,7 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
-        	   _fc.setFractal(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025));
+        	   _fc.setFractal(_model.burningShipEscapes( 255, -1.8, -1.7, -0.08, 0.025));
                _fc.setColor(_icm);
                _fc.updateCanvas();
                _fc.updateCanvas();
@@ -184,7 +183,7 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-              _fc.setFractal(_model.multibrotEscapes(2,255,-1.0 ,1.0, -1.3, 1.3));
+              _fc.setFractal(_model.multibrotEscapes(255,-1.0 ,1.0, -1.3, 1.3));
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -193,6 +192,27 @@ public class UI implements ActionListener {
            }
         });
         fractal.add(mulE);
+        
+        JTextField et = new JTextField("Escape Time");
+        JButton set = new JButton("Set Time");
+        set.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+            	_escapeDistance = Integer.parseInt(et.getText());
+            	_model = new PixelMatrix(512,512);
+            	_model.setEscapeDistance(_escapeDistance);
+               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+         	   _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+                _fc.setColor(_icm);
+                _fc.updateCanvas();
+                _fc.updateCanvas();
+               _window.pack();
+               _window.setVisible(true);
+            }
+         });
+        menuBar.add(set);
+        menuBar.add(et);
+        
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
         
