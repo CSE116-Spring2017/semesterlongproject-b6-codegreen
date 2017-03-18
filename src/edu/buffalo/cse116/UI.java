@@ -193,8 +193,8 @@ public class UI implements ActionListener {
         });
         fractal.add(mulE);
         
-        JTextField et = new JTextField("Escape Time");
-        JButton set = new JButton("Set Time");
+        JTextField et = new JTextField("Enter Distance");
+        JButton set = new JButton("Set Distance");
         set.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
