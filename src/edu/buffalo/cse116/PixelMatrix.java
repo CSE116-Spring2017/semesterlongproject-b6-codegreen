@@ -177,8 +177,8 @@ public class PixelMatrix {
 				while(dist <= maxDistance && passes < maxSteps){
 					double tempX = xCalc;
 					double tempY = yCalc;
-					xCalc = (tempX * tempX * tempX) - (3* tempX * tempY * tempY) + tempX;
-					yCalc = ((3 * tempX * tempX * tempY) - (tempY * tempY * tempY));
+					xCalc = (tempX * tempX * tempX) - (3* tempX * (tempY * tempY)) + tempX;
+					yCalc = ((3 * tempX * tempX * tempY) - (tempY * tempY * tempY)) + tempY;
 					passes++;
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
