@@ -106,7 +106,18 @@ public class UI implements ActionListener {
         	}
         });
         color.add(clr3);   
-        JMenuItem clr4 = new JMenuItem("Color 4");
+        JMenuItem clr4 = new JMenuItem("Unknown");
+        clr4.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		_icm = ColorModelFactory.createBananaSplitColorModel(256);
+        		
+        		_fc.setColor(_icm);
+        		_fc.updateCanvas();
+        		_fc.updateCanvas();
+        		
+        	}
+        });
         color.add(clr4);
         //
         //

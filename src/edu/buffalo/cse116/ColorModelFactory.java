@@ -84,4 +84,19 @@ public class ColorModelFactory {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
+  
+  public static IndexColorModel createBananaSplitColorModel(int numColors) {
+	    byte[] reds = new byte[numColors];
+	    byte[] greens = new byte[numColors];
+	    byte[] blues = new byte[numColors];
+	    for (int i = 0; i < reds.length - 1; i++) {
+	      int rgb = Color.HSBtoRGB(i / ((float) reds.length - 1), 4.6F, 1);
+	      reds[i] = (byte) ((rgb & 0xFF0000) >> 12);
+	      greens[i] = (byte) ((rgb & 0xFF00) >> 4);
+	      blues[i] = (byte) ((rgb & 0xFF00) >> 2);
+	    }
+	    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
+	    return retVal;
+	  }
+  
 }
