@@ -106,7 +106,7 @@ public class UI implements ActionListener {
         	}
         });
         color.add(clr3);   
-        JMenuItem clr4 = new JMenuItem("Unknown");
+        JMenuItem clr4 = new JMenuItem("Banana Split");
         clr4.addActionListener(new ActionListener(){
         	@Override
         	public void actionPerformed(ActionEvent e){
