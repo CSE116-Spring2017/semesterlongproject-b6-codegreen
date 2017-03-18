@@ -146,6 +146,7 @@ public class UI implements ActionListener {
         
         _window.pack();
         _window.setVisible(true);
+        _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 /*----------------^^^^------------------------------------------^^^^-------
 * ---------------||||----above eh lane, it is yong's lane----||||-------
 * ---------------||||------------------------------------------||||-------*/
