@@ -39,7 +39,7 @@ public class UI implements ActionListener {
 	public UI(){
 		
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
-        _window = new JFrame();    
+        _window = new JFrame("Fractals");    
         _fc = new FractalCanvas();
         _window.add(_fc);
         //

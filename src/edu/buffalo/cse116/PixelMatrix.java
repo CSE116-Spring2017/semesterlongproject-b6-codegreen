@@ -47,7 +47,7 @@ public class PixelMatrix {
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
-				double yCalc = yMax - (y * yStep);
+				double yCalc = yMin + (y * yStep);
 				double origX = xCalc;
 				double origY = yCalc;
 				
@@ -91,7 +91,7 @@ public class PixelMatrix {
 			for(int x = 0; x < _m.length; x++){
 				for(int y = 0; y < _m[0].length; y++){
 					double xCalc = xMin + (x * xStep);
-					double yCalc = yMax - (y * yStep);
+					double yCalc = yMin + (y * yStep);
 					
 					double dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));
 					int passes = 0;
@@ -130,7 +130,7 @@ public class PixelMatrix {
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
-				double yCalc = yMax - (y * yStep);
+				double yCalc = yMin + (y * yStep);
 				double origX = xCalc;
 				double origY = yCalc;
 				
@@ -170,7 +170,7 @@ public class PixelMatrix {
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
 				double xCalc = xMin + (x * xStep);
-				double yCalc = yMax - (y * yStep);
+				double yCalc = yMin + (y * yStep);
 				
 				double dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));
 				int passes = 0;
