@@ -188,12 +188,4 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	public void updateObserver() {
-		_observer.update();
-	}
-
-	public void addObserver(UI o) {
-		_observer = o;
-	}
-	
 }
