@@ -35,6 +35,7 @@ public class UI implements ActionListener {
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
+	int _mostRecentEscape;
 	
 	public UI(){
 		
@@ -134,6 +135,7 @@ public class UI implements ActionListener {
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               
               _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+              _mostRecentEscape = 0;
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -151,6 +153,7 @@ public class UI implements ActionListener {
         	   //_model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
               _fc.setFractal(_model.juliaEscapes( 255, -1.7, 1.7, -1.0, 1.0));
+              _mostRecentEscape = 1;
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -169,6 +172,7 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
         	   _fc.setFractal(_model.burningShipEscapes( 255, -1.8, -1.7, -0.08, 0.025));
+        	   _mostRecentEscape = 2;
                _fc.setColor(_icm);
                _fc.updateCanvas();
                _fc.updateCanvas();
@@ -184,6 +188,7 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
               _fc.setFractal(_model.multibrotEscapes(255,-1.0 ,1.0, -1.3, 1.3));
+              _mostRecentEscape = 3;
               _fc.setColor(_icm);
               _fc.updateCanvas();
               _fc.updateCanvas();
@@ -202,7 +207,18 @@ public class UI implements ActionListener {
             	_model = new PixelMatrix(512,512);
             	_model.setEscapeDistance(_escapeDistance);
                //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
-         	   _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+            	if (_mostRecentEscape == 0) {
+            		_fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+            	}
+            	else if(_mostRecentEscape == 1) {
+            		_fc.setFractal(_model.juliaEscapes(255,-2.15,.6,-1.3,1.3));
+            	}
+            	else if(_mostRecentEscape == 2) {
+            		_fc.setFractal(_model.burningShipEscapes(255,-2.15,.6,-1.3,1.3));
+            	}
+            	else {
+            		_fc.setFractal(_model.multibrotEscapes(255,-2.15,.6,-1.3,1.3));
+            	}
                 _fc.setColor(_icm);
                 _fc.updateCanvas();
                 _fc.updateCanvas();
