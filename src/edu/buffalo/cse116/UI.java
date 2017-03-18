@@ -83,6 +83,7 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
               _window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3),
                     ColorModelFactory.createRainbowColorModel(256)));
+<<<<<<< HEAD
               _window.pack();
               _window.setVisible(true);
            }
@@ -124,6 +125,43 @@ public class UI implements ActionListener {
                     ColorModelFactory.createRainbowColorModel(256)));
               _window.pack();
               _window.setVisible(true);
+=======
+           }
+        });
+        fractal.add(manE);
+        //Julia
+        JMenuItem julE = new JMenuItem("Julia");
+        //action listener
+        julE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+              _window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0),
+                    ColorModelFactory.createRainbowColorModel(256)));
+           }
+        });
+        fractal.add(julE);
+        //BurningShip
+        JMenuItem burE = new JMenuItem("BurningShip");
+        //action listener
+        burE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+              _window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025),
+                    ColorModelFactory.createRainbowColorModel(256)));
+           }
+        });
+        fractal.add(burE);
+        JMenuItem mulE = new JMenuItem("Multibrot");
+        //action listener
+        mulE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+              _window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-1.0 ,1.0, -1.3, 1.3),
+                    ColorModelFactory.createRainbowColorModel(256)));
+>>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
            }
         });
         fractal.add(mulE);
@@ -147,4 +185,4 @@ public class UI implements ActionListener {
 	}
 
 
-	}
+	}
