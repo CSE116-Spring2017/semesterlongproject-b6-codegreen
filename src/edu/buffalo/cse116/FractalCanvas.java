@@ -32,8 +32,12 @@ public class FractalCanvas extends FractalPanel {
 	}
 	
 	public void updateCanvas(){
+		if(_e != null){
 		updateImage(_e);
+		}
+		if(_c != null){
 		setIndexColorModel(_c);
+		}
 	}
 	
 }

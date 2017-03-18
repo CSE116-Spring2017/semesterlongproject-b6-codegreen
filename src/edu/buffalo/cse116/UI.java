@@ -72,6 +72,7 @@ public class UI implements ActionListener {
         	@Override
         	public void actionPerformed(ActionEvent e){
         		_icm = ColorModelFactory.createRainbowColorModel(256);
+        		
         		_fc.setColor(_icm);
         		_fc.updateCanvas();
         		_fc.updateCanvas();
@@ -84,6 +85,7 @@ public class UI implements ActionListener {
         	@Override
         	public void actionPerformed(ActionEvent e){
         		_icm = ColorModelFactory.createBluesColorModel(256);
+        		
         		_fc.setColor(_icm);
         		_fc.updateCanvas();
         		_fc.updateCanvas();
@@ -96,6 +98,7 @@ public class UI implements ActionListener {
         	@Override
         	public void actionPerformed(ActionEvent e){
         		_icm = ColorModelFactory.createGrayColorModel(256);
+        		
         		_fc.setColor(_icm);
         		_fc.updateCanvas();
         		_fc.updateCanvas();
