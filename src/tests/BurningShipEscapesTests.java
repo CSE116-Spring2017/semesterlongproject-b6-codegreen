@@ -19,7 +19,8 @@ public class BurningShipEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.8, 1.7, -0.08, 0.025);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
 
 		double xStep = (1.7 - (-1.8)) / 512;
 		double yStep = (0.025 - (-0.08)) / 512;
@@ -52,7 +53,8 @@ public class BurningShipEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.8, 1.7, -0.08, 0.025);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
 
 		double xStep = (1.7 - (-1.8)) / 512;
 		double yStep = (0.025 - (-0.08)) / 512;
@@ -85,7 +87,8 @@ public class BurningShipEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.8, 1.7, -0.08, 0.025);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
 
 		double xStep = (1.7 - (-1.8)) / 512;
 		double yStep = (0.025 - (-0.08)) / 512;
@@ -116,7 +119,8 @@ public class BurningShipEscapesTests {
 	@Test
 	public void noZeroOrOne() {
 		PixelMatrix p = new PixelMatrix(512,512);
-		int[][] escapes = p.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025);
+		_canvas.setEscapeDistance(2);
+		int[][] escapes = p.burningShipEscapes(255, -1.8, -1.7, -0.08, 0.025);
 		boolean badValue = false;
 		
 		for(int x = 0; x < escapes.length; x++){

@@ -24,7 +24,8 @@ public class MandelbrotEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.mandelbrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;
@@ -57,7 +58,8 @@ public class MandelbrotEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.mandelbrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;
@@ -90,7 +92,8 @@ public class MandelbrotEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.mandelbrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;
@@ -130,8 +133,8 @@ public class MandelbrotEscapesTest {
 	@Test
 	public void maxEscapeTime() {
 		int[] xy = new int[2];
-		_canvas = new PixelMatrix(512,512);
-		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		_canvas = new PixelMatrix(512,512);_canvas.setEscapeDistance(2);
+		int[][] testGrid = _canvas.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
 				System.out.print(testGrid[i][j] + " ");
@@ -152,7 +155,8 @@ public class MandelbrotEscapesTest {
 	public void minEscapeTime() {
 		int[] xy = new int[2];
 		_canvas = new PixelMatrix(512,512);
-		int[][] testGrid = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] testGrid = _canvas.mandelbrotEscapes(255,-1,1,-1.3,1.3);
 		for (int i=0;i<testGrid.length;i++) {
 			for (int j=0;j<testGrid[0].length;j++) {
 				if (testGrid[i][j] == 1) {
@@ -170,7 +174,8 @@ public class MandelbrotEscapesTest {
 	@Test
 	public void correctLength() {
 		_canvas = new PixelMatrix(512,512);
-		int[][] mandelbrotPaint = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] mandelbrotPaint = _canvas.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3);
 		assertEquals(mandelbrotPaint.length,512);
 	}
 	
@@ -180,7 +185,8 @@ public class MandelbrotEscapesTest {
 	@Test
 	public void correctWidth() {
 		_canvas = new PixelMatrix(512,512);
-		int[][] mandelbrotPaint = _canvas.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] mandelbrotPaint = _canvas.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3);
 		assertEquals(mandelbrotPaint[0].length,512);
 	}
 	
@@ -192,7 +198,8 @@ public class MandelbrotEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512,512);
-		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3);
 		
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;

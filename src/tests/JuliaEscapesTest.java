@@ -28,7 +28,8 @@ public class JuliaEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 
 		double xStep = (1.7 - (-1.7)) / 512;
 		double yStep = (1.0 - (-1.0)) / 512;
@@ -61,7 +62,8 @@ public class JuliaEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 
 		double xStep = (1.7 - (-1.7)) / 512;
 		double yStep = (1.0 - (-1.0)) / 512;
@@ -94,7 +96,8 @@ public class JuliaEscapesTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 
 		double xStep = (1.7 - (-1.7)) / 512;
 		double yStep = (1.0 - (-1.0)) / 512;
@@ -127,7 +130,8 @@ public class JuliaEscapesTest {
 	public void maxEscapeTime() {
 		int[] xy = new int[2];
 		_canvas = new PixelMatrix(512, 512);
-		int[][] testGrid = _canvas.juliaEscapes(2, 255, -1., 1.7, -1.0, 1.0);
+		_canvas.setEscapeDistance(2);
+		int[][] testGrid = _canvas.juliaEscapes(255, -1., 1.7, -1.0, 1.0);
 		for (int i = 0; i < testGrid.length; i++) {
 			for (int j = 0; j < testGrid[0].length; j++) {
 				System.out.print(testGrid[i][j] + " ");
@@ -148,7 +152,8 @@ public class JuliaEscapesTest {
 	public void minEscapeTime() {
 		int[] xy = new int[2];
 		_canvas = new PixelMatrix(512, 512);
-		int[][] testGrid = _canvas.juliaEscapes(2, 255, -1., 1.7, -1.0, 1.0);
+		_canvas.setEscapeDistance(2);
+		int[][] testGrid = _canvas.juliaEscapes(255, -1., 1.7, -1.0, 1.0);
 		for (int i = 0; i < testGrid.length; i++) {
 			for (int j = 0; j < testGrid[0].length; j++) {
 				if (testGrid[i][j] == 1) {

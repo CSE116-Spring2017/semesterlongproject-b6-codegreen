@@ -26,7 +26,8 @@ public class PixelTranslationTest {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512,512);
-		int[][] constant = _canvas.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3);
 		
 		double xStep = (.6 - -2.15) / 512;
 		double yStep = (1.3 - -1.3) / 512;

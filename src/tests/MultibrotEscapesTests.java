@@ -20,7 +20,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
@@ -51,7 +52,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
@@ -82,7 +84,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
