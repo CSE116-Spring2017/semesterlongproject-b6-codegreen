@@ -106,11 +106,11 @@ public class UI implements ActionListener {
         	}
         });
         color.add(clr3);   
-        JMenuItem clr4 = new JMenuItem("Banana Split");
+        JMenuItem clr4 = new JMenuItem("UB Hackathon");
         clr4.addActionListener(new ActionListener(){
         	@Override
         	public void actionPerformed(ActionEvent e){
-        		_icm = ColorModelFactory.createBananaSplitColorModel(256);
+        		_icm = ColorModelFactory.createUBHackathonColorModel(256);
         		
         		_fc.setColor(_icm);
         		_fc.updateCanvas();
