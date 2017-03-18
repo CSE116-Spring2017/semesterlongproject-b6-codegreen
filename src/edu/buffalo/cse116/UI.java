@@ -31,6 +31,7 @@ public class UI implements ActionListener {
 	JFrame _window;
 	JPanel _mainPanel;	
 	JPanel _buttonGrid;
+	FractalCanvas _fc;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
@@ -38,7 +39,9 @@ public class UI implements ActionListener {
 	public UI(){
 		
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
-        _window = new JFrame();      
+        _window = new JFrame();    
+        _fc = new FractalCanvas();
+        _window.add(_fc);
         //
         //
         //file
@@ -81,8 +84,11 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-              _window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3),
-                    ColorModelFactory.createRainbowColorModel(256)));
+              //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
+              
+              _fc.setFractal(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3));
+              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
+              _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
            }
@@ -95,8 +101,10 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-              _window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0),
-                    ColorModelFactory.createRainbowColorModel(256)));
+              //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
+              _fc.setFractal(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0));
+              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
+              _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
               
@@ -110,8 +118,10 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-              _window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025),
-                    ColorModelFactory.createRainbowColorModel(256)));
+              //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+        	   _fc.setFractal(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025));
+               _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
+               _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
            }
@@ -123,8 +133,9 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-              _window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-1.0 ,1.0, -1.3, 1.3),
-                    ColorModelFactory.createRainbowColorModel(256)));
+              _fc.setFractal(_model.multibrotEscapes(2,255,-1.0 ,1.0, -1.3, 1.3));
+              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
+              _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
            }
