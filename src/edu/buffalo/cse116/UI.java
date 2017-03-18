@@ -120,13 +120,8 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               
-<<<<<<< HEAD
               _fc.setFractal(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3));
               _fc.setColor(_icm);
-=======
-              _fc.setFractal(_model.mandelbrotEscapes(2.0,255,-2.15,.6,-1.3,1.3));
-              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
               _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
@@ -141,13 +136,8 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
-<<<<<<< HEAD
               _fc.setFractal(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0));
               _fc.setColor(_icm);
-=======
-              _fc.setFractal(_model.juliaEscapes(2.0, 255, -1.7, 1.7, -1.0, 1.0));
-              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
               _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
@@ -163,13 +153,8 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
-<<<<<<< HEAD
         	   _fc.setFractal(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025));
                _fc.setColor(_icm);
-=======
-        	   _fc.setFractal(_model.burningShipEscapes(2.0, 255, -1.8, -1.7, -0.08, 0.025));
-               _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
                _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
@@ -182,13 +167,8 @@ public class UI implements ActionListener {
            @Override
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
-<<<<<<< HEAD
               _fc.setFractal(_model.multibrotEscapes(2,255,-1.0 ,1.0, -1.3, 1.3));
               _fc.setColor(_icm);
-=======
-              _fc.setFractal(_model.multibrotEscapes(2.0,255,-1.0 ,1.0, -1.3, 1.3));
-              _fc.setColor(ColorModelFactory.createRainbowColorModel(256));
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b6-codegreen
               _fc.updateCanvas();
               _window.pack();
               _window.setVisible(true);
