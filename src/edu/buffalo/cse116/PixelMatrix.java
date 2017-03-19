@@ -8,7 +8,7 @@ public class PixelMatrix {
 	int _xDim;
 	int _yDim;
 	UI _observer;
-	int _escapeDistance;
+	double _escapeDistance;
 	
 	public PixelMatrix(int x, int y){
 		_escapeDistance = 2;
@@ -26,7 +26,7 @@ public class PixelMatrix {
 		return retVal;
 	}
 	
-	public void setEscapeDistance(int d) {
+	public void setEscapeDistance(double d) {
 		_escapeDistance = d;
 	}
 	
