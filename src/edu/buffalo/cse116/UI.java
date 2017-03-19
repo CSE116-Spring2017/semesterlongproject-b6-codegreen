@@ -8,6 +8,7 @@ import java.awt.image.IndexColorModel;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -31,7 +32,7 @@ public class UI implements ActionListener {
 	JPanel _buttonGrid;
 	FractalCanvas _fc;
 	IndexColorModel _icm;
-	private int _escapeDistance;
+	private double _escapeDistance;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
@@ -204,10 +205,13 @@ public class UI implements ActionListener {
         
         JTextField et = new JTextField("Enter Distance");
         JButton set = new JButton("Set Distance");
+        JLabel wrongAnswer = new JLabel("");
         set.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-            	_escapeDistance = Integer.parseInt(et.getText());
+            	if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
+            		wrongAnswer.setText("");
+            	_escapeDistance = Double.parseDouble(et.getText());
             	_model = new PixelMatrix(512,512);
             	_model.setEscapeDistance(_escapeDistance);
                //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
@@ -228,10 +232,13 @@ public class UI implements ActionListener {
                 _fc.updateCanvas();
                _window.pack();
                _window.setVisible(true);
+            	}
+            	else wrongAnswer.setText("Invalid Selection");
             }
          });
         menuBar.add(set);
         menuBar.add(et);
+        menuBar.add(wrongAnswer);
         
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
