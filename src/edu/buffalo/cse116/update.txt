@@ -13,9 +13,9 @@ Please read run.txt first before you start reading this.
 
 5. please click on the "Enter Distance" Text field and then on the key-board press "Ctrl + A" then press back-space key to erase the "Enter Distance"
 
-6. after the comments on the text-field is erased, please provide an "Integer" from 0-255 to run the application on track.
+6. after the comments on the text-field is erased, please provide a double from 0-255 to run the application on track.
 
-7. once you are entered the Integer, the graph will be bomb bomb pawwwwwwwwwwwwwwwwwwwww
+7. once you are entered the double, the graph will be bomb bomb pawwwwwwwwwwwwwwwwwwwww
 
 8. Magic happens. Enjoy the view. (Prof.Mettew said not magic!!, operation complete)
 
