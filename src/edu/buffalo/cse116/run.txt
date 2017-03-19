@@ -1,0 +1,19 @@
+Dear. Honor TAs.
+
+1. Run the Driver.java as java Application
+
+2. you will see Menu-bar above the dark window frame.
+
+3. move the mouse cursor to the file selection and there's close button which close the window
+
+4. fractal escapes will provide 4 different type of escapes to draw on the dark frame.
+
+5. the second menu which is color and once you move ur cursor you will be able to see 4 different type of color changes to the fractaled picture.
+
+6. enjoy the view of our great fractal application.
+
+7. [[caution]] = you will be amazed with our great works.
+									
+"We are CodeGreen. We are Group. We do not forget. We do not fail. Teach us." 
+
+																				Provider: CodeGreen

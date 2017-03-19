@@ -16,6 +16,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+/* This class will visualize the basic set up for Menu Bar.
+ * for each menus are added to the menu bar such as file, fractal, color
+ * file: 	file close is added
+ * fractal: Mandelbrot, BurningShipe, Multibrot, and Julia escapes are added
+ * color:   rainbow, grey, blue, and UBhackathon are added
+ * 
+ * based on each menuitem selection, 
+ * the pixelmatrix methods and colors will be changed and display to visualize.
+ * 
+ * @author Yongbong Kwon
+ * 
+ * */
+
 
 
 public class UI implements ActionListener {
@@ -37,7 +50,11 @@ public class UI implements ActionListener {
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
 	int _mostRecentEscape;
-	
+	/*
+	 * Action Listeners are added to each menu items to
+	 * run the methods for colors and pixelMatrix
+	 * 
+	 * */
 	public UI(){
 		
 		_escapeDistance = 2;
@@ -202,6 +219,16 @@ public class UI implements ActionListener {
            }
         });
         fractal.add(mulE);
+        
+        
+        
+        /*
+         * @author Baker Brett
+         * 
+         * JTextField is added to provide input for user
+         * button is added to execute based on the user's input 
+         * */
+        
         
         JTextField et = new JTextField("Enter Distance");
         JButton set = new JButton("Set Distance");

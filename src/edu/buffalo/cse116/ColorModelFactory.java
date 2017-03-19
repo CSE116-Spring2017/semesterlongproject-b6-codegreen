@@ -84,7 +84,16 @@ public class ColorModelFactory {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
-  
+
+  /*
+   * @author Mohammed Sefath Chowdhury
+   * 
+   * @param numColors 
+   * 		 Number of different color shades to use.
+   * @return Color model that shows all of the different possible shades of beauuuuuuuuutiful color with
+   * 	 	 green and with contrast.
+   * 
+   * */
   public static IndexColorModel createUBHackathonColorModel(int numColors) {
 	    byte[] reds = new byte[numColors];
 	    byte[] greens = new byte[numColors];

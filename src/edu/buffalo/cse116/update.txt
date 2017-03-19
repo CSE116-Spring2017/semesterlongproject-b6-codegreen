@@ -1,0 +1,24 @@
+Dear. Honor TAs.
+
+[Read before you read below]
+Please read run.txt first before you start reading this.
+
+1. So we assume that you have read the run.txt
+
+2. Congratulate that you can run the program!!!! We, the CodeGreen is now welcome you to the new world.
+
+3. Now We are here to inform you with how you can set the size of the fractal picture for your favor.
+
+4. First, once you run the code, you will see on the menu-bar which you can "Enter Distance".
+
+5. please click on the "Enter Distance" Text field and then on the key-board press "Ctrl + A" then press back-space key to erase the "Enter Distance"
+
+6. after the comments on the text-field is erased, please provide an "Integer" from 0-255 to run the application on track.
+
+7. once you are entered the Integer, the graph will be bomb bomb pawwwwwwwwwwwwwwwwwwwww
+
+8. Magic happens. Enjoy the view. (Prof.Mettew said not magic!!, operation complete)
+
+"We are CodeGreen. We are Group. We do not forget. We do not fail. Teach us." 
+
+																				Provider: CodeGreen
