@@ -112,4 +112,20 @@ public class MultibrotEscapesTests {
 
 	}
 	
+	
+	@Test
+	public void newPhaseTwoTest(){
+		PixelMatrix p = new PixelMatrix(512,512);
+		p.setEscapeDistance(3);
+		int[][] escapes = p.multibrotEscapes(255, -1, 1, -1.3, 1.3);
+		
+		if(escapes[434][147] >= 10){
+			assertTrue(true);
+		}
+		else{
+		
+			assertTrue(false);
+		}
+	}
+	
 }

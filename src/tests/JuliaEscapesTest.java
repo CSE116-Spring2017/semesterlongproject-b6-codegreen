@@ -164,4 +164,19 @@ public class JuliaEscapesTest {
 		}
 		assertEquals(testGrid[xy[0]][xy[1]], 1);
 	}
+	
+	@Test
+	public void newPhaseTwoTest(){
+		PixelMatrix p = new PixelMatrix(512,512);
+		p.setEscapeDistance(3);
+		int[][] escapes = p.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
+		
+		if(escapes[475][222] >= 10){
+			assertTrue(true);
+		}
+		else{
+			System.out.println(escapes[475][222]);
+			assertTrue(false);
+		}
+	}
 }

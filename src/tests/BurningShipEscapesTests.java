@@ -14,30 +14,31 @@ public class BurningShipEscapesTests {
 	 * A series of tests that checks if the value of a random chosen x and y coordinate
 	 * matches the calculated value
 	 */
+	
 	@Test
-	public void pixelCoordinateTranslation() {
+	public void pixelCoordinateTranslationTest1() {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
 		_canvas.setEscapeDistance(2);
-		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
+		int[][] constant = _canvas.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 
-		double xStep = (1.7 - (-1.8)) / 512;
-		double yStep = (0.025 - (-0.08)) / 512;
+		double xStep = (1.7 - (-1.7)) / 512;
+		double yStep = (1.0 - (-1.0)) / 512;
 
-		double xCalc = -1.8 + (0 * xStep); 
-		double yCalc = 0.025 - (0 * yStep); 
+		double xCalc = -1.7 + (0 * xStep); // 45
+		double yCalc = 1.0 - (0 * yStep); // and 23 are here, is this just to
+											// show how the random point is
+											// calculated?
 
 		dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
 		while (dist <= 2 && passes < 255) {
 			double tempX = xCalc;
 			double tempY = yCalc;
-			double origX = xCalc;
-			double origY = yCalc;
 
-			xCalc = (tempX * tempX) - (tempY * tempY) + origX;
-			yCalc = Math.abs(2*tempX*tempY) + origY;
+			xCalc = (tempX * tempX) - (tempY * tempY) + -0.72689;
+			yCalc = 2 * tempX * tempY  + 0.188887;
 
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
@@ -47,6 +48,7 @@ public class BurningShipEscapesTests {
 		// point (0,0)
 		assertEquals(constant[0][0], passes);
 	}
+	
 	
 	@Test
 	public void pixelCoordinateTranslation2() {
@@ -119,7 +121,7 @@ public class BurningShipEscapesTests {
 	@Test
 	public void noZeroOrOne() {
 		PixelMatrix p = new PixelMatrix(512,512);
-		_canvas.setEscapeDistance(2);
+		p.setEscapeDistance(2);
 		int[][] escapes = p.burningShipEscapes(255, -1.8, -1.7, -0.08, 0.025);
 		boolean badValue = false;
 		
@@ -127,6 +129,7 @@ public class BurningShipEscapesTests {
 			for(int y = 0; y < escapes[0].length; y++){
 				if(escapes[x][y] == 0 || escapes[x][y] == 1){
 					badValue = true;
+					System.out.print(escapes[x][y] + " ");
 				}
 				System.out.print(escapes[x][y] + " ");
 			}
@@ -136,5 +139,21 @@ public class BurningShipEscapesTests {
 		assertFalse(badValue);
 		
 		}
+	
+
+	@Test
+	public void newPhaseTwoTest(){
+		PixelMatrix p = new PixelMatrix(512,512);
+		p.setEscapeDistance(3);
+		int[][] escapes = p.burningShipEscapes(255, -1.8, -1.7, -0.08, 0.025);
+		
+		if(escapes[511][405] >= 10){
+			assertTrue(true);
+		}
+		else{
+			System.out.println(escapes[511][405]);
+			assertTrue(false);
+		}
+	}
 	
 }

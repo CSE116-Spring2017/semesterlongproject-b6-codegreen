@@ -226,6 +226,7 @@ public class UI implements ActionListener {
             	}
             	else {
             		_fc.setFractal(_model.multibrotEscapes(255,-2.15,.6,-1.3,1.3));
+            		
             	}
                 _fc.setColor(_icm);
                 _fc.updateCanvas();
