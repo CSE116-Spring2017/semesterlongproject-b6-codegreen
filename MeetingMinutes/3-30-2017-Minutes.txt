@@ -1,0 +1,23 @@
+Meeting Minutes for _______________:
+
+Meeting Attendance:
+  * Mohammed Sefath Chowdhury
+  * Yongbong Kwon
+  * Ethan Arbrust
+  * Brett Baker
+
+Tasks completed since last meeting:
+  * fixed Fractal bounds when changing escape distance
+  
+
+Tasks started, but not completed, since last meeting:
+  * 
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * read and comprehend the material
+  * 
+
+Schedule for the next week's set of pair programming meetings:
+  *
+  *
