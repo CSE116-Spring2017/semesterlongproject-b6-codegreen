@@ -246,13 +246,13 @@ public class UI implements ActionListener {
             		_fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
             	}
             	else if(_mostRecentEscape == 1) {
-            		_fc.setFractal(_model.juliaEscapes(255,-2.15,.6,-1.3,1.3));
+            		_fc.setFractal(_model.juliaEscapes(255,-1.7,1.7,-1.0,1.0));
             	}
             	else if(_mostRecentEscape == 2) {
-            		_fc.setFractal(_model.burningShipEscapes(255,-2.15,.6,-1.3,1.3));
+            		_fc.setFractal(_model.burningShipEscapes(255,-1.8,-1.7,-0.08,0.025));
             	}
             	else {
-            		_fc.setFractal(_model.multibrotEscapes(255,-2.15,.6,-1.3,1.3));
+            		_fc.setFractal(_model.multibrotEscapes(255,-1,1,-1.3,1.3));
             		
             	}
                 _fc.setColor(_icm);
