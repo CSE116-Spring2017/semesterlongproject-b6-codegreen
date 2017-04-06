@@ -1,0 +1,24 @@
+Meeting Minutes for 2/11/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker (M)
+  Yongbong Kwon
+  Mohammed Sefath Chowdhury
+  
+Tasks completed since last meeting:
+  *
+  *
+
+Tasks started, but not completed, since last meeting:
+  *
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Brett do new JUnit tests for Julia and Multibrot
+  * Mohammed do JUnit tests for Mandelbrot and burningship
+  * Ethan and Yong work on zoom function
+
+Schedule for the next week's set of pair programming meetings:
+  *
+  *
