@@ -1,13 +1,34 @@
 package edu.buffalo.cse116;
 
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import javax.swing.*;
+import java.awt.image.IndexColorModel;
 
-import edu.buffalo.cse116.PixelMatrix;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+/* This class will visualize the basic set up for Menu Bar.
+ * for each menus are added to the menu bar such as file, fractal, color
+ * file: 	file close is added
+ * fractal: Mandelbrot, BurningShipe, Multibrot, and Julia escapes are added
+ * color:   rainbow, grey, blue, and UBhackathon are added
+ * 
+ * based on each menuitem selection, 
+ * the pixelmatrix methods and colors will be changed and display to visualize.
+ * 
+ * @author Yongbong Kwon
+ * 
+ * */
+
 
 
 public class UI implements ActionListener {
@@ -22,173 +43,250 @@ public class UI implements ActionListener {
 	JFrame _window;
 	JPanel _mainPanel;	
 	JPanel _buttonGrid;
+	FractalCanvas _fc;
+	IndexColorModel _icm;
+	private double _escapeDistance;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE =2;
-	private EventHandler eh;
-	
+	int _mostRecentEscape;
+	/*
+	 * Action Listeners are added to each menu items to
+	 * run the methods for colors and pixelMatrix
+	 * 
+	 * */
 	public UI(){
 		
-			JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
-			_window = new JFrame();		
-			//file
-			JMenu file= new JMenu("File");
-			file.addActionListener(eh);
-			menuBar.add(file);
-			//file-open
-			JMenuItem open= new JMenuItem("File Open");
-			open.addActionListener(eh);
-			open.setActionCommand("fopen");
-			file.add(open);
-			//file-close
-			JMenuItem close= new JMenuItem("File Close");
-			close.addActionListener(eh);
-			close.setActionCommand("fclose");
-			file.add(close);		
-			//Color
-			JMenuItem color = new JMenu("Color");
-			color.setMnemonic(KeyEvent.VK_R);
-			color.addActionListener(eh);
-			menuBar.add(color);
-			//color sets ( 3 )
-			JMenuItem clr1 = new JMenuItem("Color 1");
-			clr1.addActionListener(eh);
-			clr1.setActionCommand("clr1");
-			color.add(clr1);
-			JMenuItem clr2 = new JMenuItem("Color 2");
-			clr2.addActionListener(eh);
-			clr2.setActionCommand("clr2");
-			color.add(clr2);
-			JMenuItem clr3 = new JMenuItem("Color 3");
-			clr3.addActionListener(eh);
-			clr3.setActionCommand("clr3");
-			color.add(clr3);	
-			//Fractal
-			JMenu fractal = new JMenu("Fractal Escapes");
-			fractal.setMnemonic(KeyEvent.VK_F);
-			fractal.addActionListener(eh);
-			menuBar.add(fractal);
-			//Fractal sets ( 4 )
-			JMenuItem manE = new JMenuItem("Mandelbrot");
-			manE.addActionListener(eh);
-			manE.setActionCommand("mandelbrotEscapes");
-			fractal.add(manE);
-			JMenuItem julE = new JMenuItem("Julia");
-			julE.addActionListener(eh);
-			julE.setActionCommand("juliaEscapes");
-			fractal.add(julE);
-			JMenuItem burE = new JMenuItem("BurningShip");
-			burE.addActionListener(eh);
-			burE.setActionCommand("burningShipEscapes");
-			fractal.add(burE);
-			JMenuItem mulE = new JMenuItem("Multibrot");
-			mulE.addActionListener(eh);
-			mulE.setActionCommand("multibrotEscapes");
-			fractal.add(mulE);
-			menuBar.setLayout(new FlowLayout());
-			_window.setJMenuBar(menuBar);
-			_window.add(menuBar);
-			
-			
+		_escapeDistance = 2;
+        JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
+        _window = new JFrame("Fractals");  
+        _icm = ColorModelFactory.createRainbowColorModel(256);
+        _model = new PixelMatrix(512,512);
+        _fc = new FractalCanvas();
+        _window.add(_fc);
+        //
+        //
+        //file
+        JMenu file= new JMenu("File");       
+        menuBar.add(file);
+        //file-close
+        JMenuItem close= new JMenuItem("File Close");
+        close.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+              System.exit(0);
+           }
+        });
+        file.add(close); 
+        //
+        //
+        //Color
+        JMenu color = new JMenu("Color");
+        color.setMnemonic(KeyEvent.VK_R);
+        menuBar.add(color);
+        //color sets ( 3 )
+        JMenuItem clr1 = new JMenuItem("Rainbow");
+        clr1.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		_icm = ColorModelFactory.createRainbowColorModel(256);
+        		
+        		_fc.setColor(_icm);
+        		_fc.updateCanvas();
+        		_fc.updateCanvas();
+        		
+        	}
+        });
+        color.add(clr1);
+        JMenuItem clr2 = new JMenuItem("Blue");
+        clr2.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		_icm = ColorModelFactory.createBluesColorModel(256);
+        		
+        		_fc.setColor(_icm);
+        		_fc.updateCanvas();
+        		_fc.updateCanvas();
+        		
+        	}
+        });
+        color.add(clr2);
+        JMenuItem clr3 = new JMenuItem("Gray");
+        clr3.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		_icm = ColorModelFactory.createGrayColorModel(256);
+        		
+        		_fc.setColor(_icm);
+        		_fc.updateCanvas();
+        		_fc.updateCanvas();
+        		
+        	}
+        });
+        color.add(clr3);   
+        JMenuItem clr4 = new JMenuItem("UB Hackathon");
+        clr4.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		_icm = ColorModelFactory.createUBHackathonColorModel(256);
+        		
+        		_fc.setColor(_icm);
+        		_fc.updateCanvas();
+        		_fc.updateCanvas();
+        		
+        	}
+        });
+        color.add(clr4);
+        //
+        //
+        //Fractal
+        JMenu fractal = new JMenu("Fractal Escapes");
+        fractal.setMnemonic(KeyEvent.VK_F);
+        menuBar.add(fractal);
+        //MandelBrot
+        JMenuItem manE = new JMenuItem("Mandelbrot");
+        //action listener
+        manE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+              //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
+              _model.setEscapeDistance(_escapeDistance);
+              _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+              _mostRecentEscape = 0;
+              _fc.setColor(_icm);
+              _fc.updateCanvas();
+              _fc.updateCanvas();
+              _window.pack();
+              _window.setVisible(true);
+           }
+        });
+        fractal.add(manE);
+        //Julia
+        JMenuItem julE = new JMenuItem("Julia");
+        //action listener
+        julE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+        	   _model.setEscapeDistance(_escapeDistance);
+              //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
+              _fc.setFractal(_model.juliaEscapes( 255, -1.7, 1.7, -1.0, 1.0));
+              
+              _mostRecentEscape = 1;
+              _fc.setColor(_icm);
+              _fc.updateCanvas();
+              _fc.updateCanvas();
+              _window.pack();
+              _window.setVisible(true);
+              
+           }
+        });
+        fractal.add(julE);
+        //BurningShip
+        JMenuItem burE = new JMenuItem("BurningShip");
+        //action listener
+        burE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+        	   _model.setEscapeDistance(_escapeDistance);
+              //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+        	   _fc.setFractal(_model.burningShipEscapes( 255, -1.8, -1.7, -0.08, 0.025));
+        	   _mostRecentEscape = 2;
+               _fc.setColor(_icm);
+               _fc.updateCanvas();
+               _fc.updateCanvas();
+              _window.pack();
+              _window.setVisible(true);
+           }
+        });
+        fractal.add(burE);
+        JMenuItem mulE = new JMenuItem("Multibrot");
+        //action listener
+        mulE.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed(ActionEvent e){
+        	   _model = new PixelMatrix(512,512);
+        	   _model.setEscapeDistance(_escapeDistance);
+              _fc.setFractal(_model.multibrotEscapes(255,-1.0 ,1.0, -1.3, 1.3));
+              _mostRecentEscape = 3;
+              _fc.setColor(_icm);
+              _fc.updateCanvas();
+              _fc.updateCanvas();
+              _window.pack();
+              _window.setVisible(true);
+           }
+        });
+        fractal.add(mulE);
+        
+        
+        
+        /*
+         * @author Baker Brett
+         * 
+         * JTextField is added to provide input for user
+         * button is added to execute based on the user's input 
+         * */
+        
+        
+        JTextField et = new JTextField("Enter Distance");
+        JButton set = new JButton("Set Distance");
+        JLabel wrongAnswer = new JLabel("");
+        set.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+            	if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
+            		wrongAnswer.setText("");
+            	_escapeDistance = Double.parseDouble(et.getText());
+            	_model = new PixelMatrix(512,512);
+            	_model.setEscapeDistance(_escapeDistance);
+               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+            	if (_mostRecentEscape == 0) {
+            		_fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+            	}
+            	else if(_mostRecentEscape == 1) {
+            		_fc.setFractal(_model.juliaEscapes(255,-1.7,1.7,-1.0,1.0));
+            	}
+            	else if(_mostRecentEscape == 2) {
+            		_fc.setFractal(_model.burningShipEscapes(255,-1.8,-1.7,-0.08,0.025));
+            	}
+            	else {
+            		_fc.setFractal(_model.multibrotEscapes(255,-1,1,-1.3,1.3));
+            		
+            	}
+                _fc.setColor(_icm);
+                _fc.updateCanvas();
+                _fc.updateCanvas();
+               _window.pack();
+               _window.setVisible(true);
+            	}
+            	else wrongAnswer.setText("Invalid Selection");
+            }
+         });
+        menuBar.add(set);
+        menuBar.add(et);
+        menuBar.add(wrongAnswer);
+        
+        menuBar.setLayout(new FlowLayout());
+        _window.setJMenuBar(menuBar);
+        
+        _window.pack();
+        _window.setVisible(true);
+        _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 /*----------------^^^^------------------------------------------^^^^-------
- * ---------------||||----above eh lane, it is yong's lane----||||-------
- * ---------------||||------------------------------------------||||-------*/
-			
-			
-			// Give the main panel two sections (two rows, one column)
-		
-			_mainPanel = new JPanel();
-			_mainPanel.setSize(300, 300);
-			_mainPanel.setLayout(new GridLayout(300,300));					
-			// Set up the JPanel and GridLayout where the grid of buttons will go			
-			JButton increase = new JButton("Increase Numbers");
-			increase.setLayout(new GridLayout(3,1));		
-			_mainPanel.add(increase);		
-			
-			//increase.addActionListener(new NumberButtonHandler(_model));	
-		//	JButton thickness = new JButton("Increase Thickness");
-			//use the actioncommand to call the method input so we don't need to create all the methodcalls.
-			/* eg) 
-			*public class MenuItemListener implements ActionListener {
-	    		public void actionPerformed(ActionEvent e) {            
-	        	use.PixelMatrix(e.getActionCommand());
-			*
-			*/
-			_window.add(_mainPanel);
-			_window.pack();
-			_window.setVisible(true);
-			
-	
-			// Keep a permanent reference to the Model in order to notify it of user input
-			//_model = m;
-			
-			/* The UI is taking care of itself here - it's making sure the model
-			 * will know to call it when it's time for visual updates. */
-			//_model.addObserver(eh);
-			
-			// Perform some setup tasks that only need to be done once.
-	
-			
-			// Bring the UI to a ready state.
-			update();
-		
-		
-	
-		//JButton thickness = new JButton("Increase Thickness");
-		
-		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
-		 * Doing eh is much more convenient than creating a whole separate class and setting up an association 
-		 * relationship with UI. */
-		/*thickness.addActionListener(new ActionListener(){
-			
-		});
-		_mainPanel.add(thickness);
-		*/
-		// Final steps to display the window
-		
-	}
-
-		
-		/* actionListener code here for example.
-		 example of adding actions to the menu option clicks
-		if (e.getSource().equals(menuoption)){
-			
-		}
-
-		// Set up the JPanel and GridLayout where the grid of buttons will go
-		_buttonGrid = new JPanel();
-		_buttonGrid.setLayout(new GridLayout(ROWS, COLUMNS));
-		
-		_mainPanel.add(_buttonGrid);
-		
-		JButton increase = new JButton("Increase Numbers");
-		increase.addActionListener(new NumberButtonHandler(_model));
-		_mainPanel.add(increase);
-		
-		JButton thickness = new JButton("Increase Thickness");
-		
-		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
-		 * Doing eh is much more convenient than creating a whole separate class and setting up an association 
-		 * relationship with UI. */
-		/*thickness.addActionListener(new ActionListener())
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				_model.increaseBorderThickness();
-			}*/
-		
-	
-	public void update() {
-		//FractalPanel magic = new FractalPanel();
-		//magic.updateImage(_model.mandelbrotEscapes);
-		
-	}
-
+* ---------------||||----above eh lane, it is yong's lane----||||-------
+* ---------------||||------------------------------------------||||-------*/
+        
+      
+       
+        }
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	}
-	
+
+}

@@ -20,7 +20,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
@@ -51,7 +52,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
@@ -82,7 +84,8 @@ public class MultibrotEscapesTests {
 		double dist = 0.0;
 		int passes = 0;
 		_canvas = new PixelMatrix(512, 512);
-		int[][] constant = _canvas.multibrotEscapes(2,255,-1,1,-1.3,1.3);
+		_canvas.setEscapeDistance(2);
+		int[][] constant = _canvas.multibrotEscapes(255,-1,1,-1.3,1.3);
 
 		double xStep = (1 - (-1)) / 512;
 		double yStep = (1.3 - (-1.3)) / 512;
@@ -107,6 +110,22 @@ public class MultibrotEscapesTests {
 		//point (512, 512)
 		assertEquals(constant[511][511],passes);
 
+	}
+	
+	
+	@Test
+	public void newPhaseTwoTest(){
+		PixelMatrix p = new PixelMatrix(512,512);
+		p.setEscapeDistance(3);
+		int[][] escapes = p.multibrotEscapes(255, -1, 1, -1.3, 1.3);
+		
+		if(escapes[434][147] >= 10){
+			assertTrue(true);
+		}
+		else{
+		
+			assertTrue(false);
+		}
 	}
 	
 }

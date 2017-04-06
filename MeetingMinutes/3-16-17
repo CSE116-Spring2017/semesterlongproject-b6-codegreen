@@ -1,0 +1,24 @@
+Meeting Minutes for 3/16/2017:
+
+Meeting Attendance:
+  Ethan Armbrust 
+  Brett Baker 
+  Mohammed Sefath Chowdhury
+  Yongbong Kwon (M)
+
+Tasks completed since last meeting:
+backbone of the UI, ActionListener for MenuBar is created.
+
+
+
+Tasks to be worked on (and by which team members) for the next meeting:
+getting done with all the escape methods connecting with UI and graph the escapes
+ -Ethan: Have a good Spring break. - Tests methods and maintain all the codes works correctly
+ -Yong: Have a good Spring break. - working on EventHandler and UI connection w/ Sefath
+ -Sefath: Have a good Spring break. - working on EventHandler and UI connection w/ Yong
+ -Brett: Have a good Spring break. - visualize the escapes (fractal canvas)
+Phase#2 will be done by this Saturday and we will have a good spring break.
+
+Schedule for the next week's set of pair programming meetings:
+
+  3/30/17: All meet at the recitation
