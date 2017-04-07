@@ -15,8 +15,8 @@ Tasks started, but not completed, since last meeting:
   *
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  * Brett do new JUnit tests for Julia and Multibrot
-  * Mohammed do JUnit tests for Mandelbrot and burningship
+  * Brett do new JUnit tests for burningship and Multibrot
+  * Mohammed do JUnit tests for Mandelbrot and julia
   * Ethan and Yong work on zoom function
 
 Schedule for the next week's set of pair programming meetings:
