@@ -128,4 +128,11 @@ public class MultibrotEscapesTests {
 		}
 	}
 	
+	@Test
+	public void phaseThreeEDTest() {
+		PixelMatrix px = new PixelMatrix(512,512);
+		px.setEscapeDistance(2);
+		int[][] constant = px.multibrotEscapes(135, -1, 1, -1.3, 1.3);
+		assertEquals(constant[406][208],135);
+	}
 }

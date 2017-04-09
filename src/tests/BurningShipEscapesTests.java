@@ -156,4 +156,12 @@ public class BurningShipEscapesTests {
 		}
 	}
 	
+	@Test
+	public void phaseThreeEDTest() {
+		PixelMatrix px = new PixelMatrix(512,512);
+		px.setEscapeDistance(2);
+		int[][] constant = px.burningShipEscapes(135, -1.8, -1.7, -0.08, 0.025);
+		assertEquals(constant[285][207],17);
+	}
+	
 }
