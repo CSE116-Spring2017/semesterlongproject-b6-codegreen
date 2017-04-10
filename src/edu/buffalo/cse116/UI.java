@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.IndexColorModel;
+import edu.buffalo.cse116.MouseDragHandler;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.MenuDragMouseListener;
 
 
 /* This class will visualize the basic set up for Menu Bar.
@@ -240,7 +242,8 @@ public class UI implements ActionListener {
         });
         fractal.add(mulE);
         
-        
+        MouseDragHandler itchy = new MouseDragHandler();
+        _window.addMouseListener(itchy);
         
         /*
          * @author Baker Brett
@@ -259,7 +262,7 @@ public class UI implements ActionListener {
             	if(et.getText().equals("Enter Distance")){
             		et.setText("2");
             	}
-            	if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
+            	else if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
             		wrongAnswer.setText("");
             	_escapeDistance = Double.parseDouble(et.getText());
             	_model = new PixelMatrix(512,512);
@@ -284,7 +287,11 @@ public class UI implements ActionListener {
                _window.pack();
                _window.setVisible(true);
             	}
-            	else wrongAnswer.setText("Invalid Selection");
+            	else {
+            		wrongAnswer.setText("Invalid Selection");
+            		_window.pack();
+            	}
+            	
             }
          });
         menuBar.add(set);
