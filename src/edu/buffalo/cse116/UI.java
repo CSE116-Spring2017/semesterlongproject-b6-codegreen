@@ -45,6 +45,11 @@ public class UI implements ActionListener {
 	JPanel _buttonGrid;
 	FractalCanvas _fc;
 	IndexColorModel _icm;
+	double _currentXMax;
+	double _currentXMin;
+	double _currentYMax;
+	double _currentYMin;
+	
 	private double _escapeDistance;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
@@ -152,7 +157,11 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               _model.setEscapeDistance(_escapeDistance);
-              _fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+              _currentXMin = -2.15;
+              _currentXMax = 0.6;
+              _currentYMin = -1.3;
+              _currentYMax = 1.3;
+              _fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
               _mostRecentEscape = 0;
               _fc.setColor(_icm);
               _fc.updateCanvas();
@@ -171,8 +180,11 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
-              _fc.setFractal(_model.juliaEscapes( 255, -1.7, 1.7, -1.0, 1.0));
-              
+        	   _currentXMin = -1.7;
+               _currentXMax = 1.7;
+               _currentYMin = -1.0;
+               _currentYMax = 1.0;
+        	   _fc.setFractal(_model.juliaEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
               _mostRecentEscape = 1;
               _fc.setColor(_icm);
               _fc.updateCanvas();
@@ -192,7 +204,11 @@ public class UI implements ActionListener {
         	   _model = new PixelMatrix(512,512);
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
-        	   _fc.setFractal(_model.burningShipEscapes( 255, -1.8, -1.7, -0.08, 0.025));
+        	   _currentXMin = -1.8;
+               _currentXMax = -1.7;
+               _currentYMin = -0.08;
+               _currentYMax = 0.025;
+        	   _fc.setFractal(_model.burningShipEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
         	   _mostRecentEscape = 2;
                _fc.setColor(_icm);
                _fc.updateCanvas();
@@ -209,7 +225,11 @@ public class UI implements ActionListener {
            public void actionPerformed(ActionEvent e){
         	   _model = new PixelMatrix(512,512);
         	   _model.setEscapeDistance(_escapeDistance);
-              _fc.setFractal(_model.multibrotEscapes(255,-1.0 ,1.0, -1.3, 1.3));
+        	   _currentXMin = -1;
+               _currentXMax = 1;
+               _currentYMin = -1.3;
+               _currentYMax = 1.3;
+              _fc.setFractal(_model.multibrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
               _mostRecentEscape = 3;
               _fc.setColor(_icm);
               _fc.updateCanvas();
@@ -230,12 +250,15 @@ public class UI implements ActionListener {
          * */
         
         
-        JTextField et = new JTextField("Enter Distance");
+        JTextField et = new JTextField("Enter Distance", 10);
         JButton set = new JButton("Set Distance");
         JLabel wrongAnswer = new JLabel("");
         set.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+            	if(et.getText().equals("Enter Distance")){
+            		et.setText("2");
+            	}
             	if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
             		wrongAnswer.setText("");
             	_escapeDistance = Double.parseDouble(et.getText());
@@ -243,16 +266,16 @@ public class UI implements ActionListener {
             	_model.setEscapeDistance(_escapeDistance);
                //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
             	if (_mostRecentEscape == 0) {
-            		_fc.setFractal(_model.mandelbrotEscapes(255,-2.15,.6,-1.3,1.3));
+            		_fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
             	}
             	else if(_mostRecentEscape == 1) {
-            		_fc.setFractal(_model.juliaEscapes(255,-1.7,1.7,-1.0,1.0));
+            		_fc.setFractal(_model.juliaEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
             	}
             	else if(_mostRecentEscape == 2) {
-            		_fc.setFractal(_model.burningShipEscapes(255,-1.8,-1.7,-0.08,0.025));
+            		_fc.setFractal(_model.burningShipEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
             	}
             	else {
-            		_fc.setFractal(_model.multibrotEscapes(255,-1,1,-1.3,1.3));
+            		_fc.setFractal(_model.multibrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
             		
             	}
                 _fc.setColor(_icm);
