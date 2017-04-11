@@ -3,6 +3,9 @@ package edu.buffalo.cse116;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+import javax.swing.SwingUtilities;
+
 import java.awt.event.*;
 import java.awt.Component;
 
@@ -29,7 +32,9 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		if(SwingUtilities.isRightMouseButton(arg0)){
+			_ui.resetZoom();
+		}
 
 	}
 
@@ -58,7 +63,7 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 		endX = arg0.getX();
 		endY = arg0.getY();
 		System.out.println("Released: " + endX + "," + endY);
-		if(!(endX == startX && endY == startY)){
+		if(!(endX == startX && endY == startY) && SwingUtilities.isLeftMouseButton(arg0)){
 			_ui.zoomIn(startX, startY, endX, endY);
 		}
 	}
