@@ -331,21 +331,23 @@ public class UI implements ActionListener {
 		double windowXDim = win.getWidth();
 		double windowYDim = win.getHeight();
 		
-		double pixelToCartesianXRatio = _currentXMax / windowXDim;
-		double pixelToCartesianYRatio = _currentYMax / windowYDim;
+		double xStep = (_currentXMax - _currentXMin)/windowXDim;
+		double yStep = (_currentYMax - _currentYMin)/windowYDim;
 		
-		_currentXMax = newMaxX * pixelToCartesianXRatio;
-		_currentXMin = newMinX * pixelToCartesianXRatio;
-		_currentYMax = newMaxY * pixelToCartesianYRatio;
-		_currentYMin = newMinY * pixelToCartesianYRatio;
+		_currentXMax = (newMaxX * xStep) + _currentXMin;
+		_currentXMin = (newMinX * xStep) + _currentXMin; //hello, newMin
+		_currentYMax = (newMaxY * yStep) + _currentYMin; //hello, JRE
+		_currentYMin = (newMinY * yStep) + _currentYMin;
 		
+		System.out.println("Mouse Max X: " + newMaxX);
+		System.out.println("Mouse Min X: " + newMinX);
+		System.out.println("Mouse Max Y: " + newMaxY);
+		System.out.println("Mouse Min Y: " + newMinY);
 		
 		System.out.println("currentXMax: " + _currentXMax);
 		System.out.println("currentXMin: " + _currentXMin);
 		System.out.println("currentYMax: " + _currentYMax);
 		System.out.println("currentYMin: " + _currentYMin);
-		System.out.println("Ratio X: " + pixelToCartesianXRatio);
-		System.out.println("Ratio Y: " + pixelToCartesianYRatio);
 		System.out.println("Window X: " + windowXDim);
 		System.out.println("Window Y: " + windowYDim);
 		System.out.println("\n");
