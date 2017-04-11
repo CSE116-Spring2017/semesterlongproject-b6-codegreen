@@ -1,5 +1,6 @@
 package edu.buffalo.cse116;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,7 +69,7 @@ public class UI implements ActionListener {
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
         _window = new JFrame("Fractals");  
         _icm = ColorModelFactory.createRainbowColorModel(256);
-        _model = new PixelMatrix(512,512);
+        _model = new PixelMatrix(1024,1024);
         _fc = new FractalCanvas();
         _window.add(_fc);
         //
@@ -242,8 +243,8 @@ public class UI implements ActionListener {
         });
         fractal.add(mulE);
         
-        MouseDragHandler itchy = new MouseDragHandler();
-        _window.addMouseListener(itchy);
+        MouseDragHandler itchy = new MouseDragHandler(this);
+        _fc.addMouseListener(itchy);
         
         /*
          * @author Baker Brett
@@ -315,6 +316,57 @@ public class UI implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public void zoomIn(int mouseXStart, int mouseYStart, int mouseXEnd, int mouseYEnd){
+		int newMaxX = mouseXStart > mouseXEnd ? mouseXStart : mouseXEnd;
+		int newMinX = mouseXStart < mouseXEnd ? mouseXStart : mouseXEnd;
+		int newMaxY = mouseYStart > mouseYEnd ? mouseYStart : mouseYEnd;
+		int newMinY = mouseYStart < mouseYEnd ? mouseYStart : mouseYEnd;
+		
+		Dimension win = _fc.getSize();
+		
+		
+		double windowXDim = win.getWidth();
+		double windowYDim = win.getHeight();
+		
+		double pixelToCartesianXRatio = _currentXMax / windowXDim;
+		double pixelToCartesianYRatio = _currentYMax / windowYDim;
+		
+		_currentXMax = newMaxX * pixelToCartesianXRatio;
+		_currentXMin = newMinX * pixelToCartesianXRatio;
+		_currentYMax = newMaxY * pixelToCartesianYRatio;
+		_currentYMin = newMinY * pixelToCartesianYRatio;
+		
+		
+		System.out.println("currentXMax: " + _currentXMax);
+		System.out.println("currentXMin: " + _currentXMin);
+		System.out.println("currentYMax: " + _currentYMax);
+		System.out.println("currentYMin: " + _currentYMin);
+		System.out.println("Ratio X: " + pixelToCartesianXRatio);
+		System.out.println("Ratio Y: " + pixelToCartesianYRatio);
+		System.out.println("Window X: " + windowXDim);
+		System.out.println("Window Y: " + windowYDim);
+		System.out.println("\n");
+		
+		if (_mostRecentEscape == 0) {
+    		_fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+    	}
+    	else if(_mostRecentEscape == 1) {
+    		_fc.setFractal(_model.juliaEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+    	}
+    	else if(_mostRecentEscape == 2) {
+    		_fc.setFractal(_model.burningShipEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+    	}
+    	else {
+    		_fc.setFractal(_model.multibrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+    		
+    	}
+		_fc.updateCanvas();
+        _fc.updateCanvas();
+       _window.pack();
+       _window.setVisible(true);
 		
 	}
 

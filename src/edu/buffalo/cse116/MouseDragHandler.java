@@ -8,9 +8,13 @@ import java.awt.Component;
 
 public class MouseDragHandler implements MouseListener, MouseMotionListener {
 	
-	private int startX, startY, prevX, prevY;
+	private int startX, startY, endX, endY;
 	private boolean df; //is dragging
+	UI _ui;
 	
+	public MouseDragHandler(UI youEye){
+		_ui = youEye;
+	}
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
@@ -45,14 +49,18 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 	public void mousePressed(MouseEvent arg0) {
 		startX = arg0.getX();
 		startY = arg0.getY();
-		System.out.println(startX + "," + startY);
+		System.out.println("Pressed: " + startX + "," + startY);
 
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		endX = arg0.getX();
+		endY = arg0.getY();
+		System.out.println("Released: " + endX + "," + endY);
+		if(!(endX == startX && endY == startY)){
+			_ui.zoomIn(startX, startY, endX, endY);
+		}
 	}
 
 }
