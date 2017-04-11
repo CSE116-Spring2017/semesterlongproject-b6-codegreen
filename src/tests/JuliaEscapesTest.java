@@ -179,4 +179,12 @@ public class JuliaEscapesTest {
 			assertTrue(false);
 		}
 	}
+	
+	@Test
+	public void phaseThreeEDTest() {
+		PixelMatrix px = new PixelMatrix(512,512);
+		px.setEscapeDistance(2);
+		int[][] constant = px.multibrotEscapes(135, -1.7, 1.7, -1.0, 1.0);
+		assertEquals(constant[432][234],135);
+	}
 }
