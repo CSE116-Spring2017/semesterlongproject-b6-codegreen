@@ -374,16 +374,32 @@ public class UI implements ActionListener {
 	
 	public void resetZoom(){
 		if (_mostRecentEscape == 0) {
-    		_fc.setFractal(_model.mandelbrotEscapes(255,-2.15,0.6,-1.3,1.3));
+			_currentXMin = -2.15;
+            _currentXMax = 0.6;
+            _currentYMin = -1.3;
+            _currentYMax = 1.3;
+            _fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
     	}
     	else if(_mostRecentEscape == 1) {
-    		_fc.setFractal(_model.juliaEscapes(255,-1.7,1.7,-1.0,1.0));
+    		_currentXMin = -1.7;
+            _currentXMax = 1.7;
+            _currentYMin = -1.0;
+            _currentYMax = 1.0;
+     	   _fc.setFractal(_model.juliaEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
     	}
     	else if(_mostRecentEscape == 2) {
-    		_fc.setFractal(_model.burningShipEscapes(255,-1.8,-1.7,-0.08,0.025));
+    		_currentXMin = -1.8;
+            _currentXMax = -1.7;
+            _currentYMin = -0.08;
+            _currentYMax = 0.025;
+     	   _fc.setFractal(_model.burningShipEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
     	}
     	else {
-    		_fc.setFractal(_model.multibrotEscapes(255,-1,1,-1.3,1.3));
+    		_currentXMin = -1;
+            _currentXMax = 1;
+            _currentYMin = -1.3;
+            _currentYMax = 1.3;
+           _fc.setFractal(_model.multibrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
     		
     	}
 		_fc.updateCanvas();
