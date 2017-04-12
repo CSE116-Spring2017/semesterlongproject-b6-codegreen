@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.MenuDragMouseListener;
 
-
 /* This class will visualize the basic set up for Menu Bar.
  * for each menus are added to the menu bar such as file, fractal, color
  * file: 	file close is added
@@ -32,19 +31,16 @@ import javax.swing.event.MenuDragMouseListener;
  * 
  * */
 
-
-
 public class UI implements ActionListener {
-	
-	
+
 	/*----------------||||------------------------------------------||||-------
 	 * ---------------||||----under eh lane, it is yong's lane----||||-------
 	 * ---------------VVVV------------------------------------------VVVV-------*/
-	
+
 	PixelMatrix _model;
 	// UI elements
 	JFrame _window;
-	JPanel _mainPanel;	
+	JPanel _mainPanel;
 	JPanel _buttonGrid;
 	FractalCanvas _fc;
 	IndexColorModel _icm;
@@ -52,17 +48,18 @@ public class UI implements ActionListener {
 	double _currentXMin;
 	double _currentYMax;
 	double _currentYMin;
-	
+
 	private double _escapeDistance;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
-	static int BUTTON_SIZE =2;
+	static int BUTTON_SIZE = 2;
 	int _mostRecentEscape;
+
 	/*
-	 * Action Listeners are added to each menu items to
-	 * run the methods for colors and pixelMatrix
+	 * Action Listeners are added to each menu items to run the methods for
+	 * colors and pixelMatrix
 	 * 
-	 * */
+	 */
 	public UI(){
 		
 		_escapeDistance = 2;
@@ -298,6 +295,23 @@ public class UI implements ActionListener {
         menuBar.add(set);
         menuBar.add(et);
         menuBar.add(wrongAnswer);
+        
+        /**JButton reset = new JButton("Reset Zoom");
+        reset.addActionListener(new ActionListener());
+        @Override
+        public void actionPerformed(ActionEvent e){
+        	_model = new PixelMatrix(512,512);
+        	_model.setEscapeDistance(_escapeDistance);
+        	
+        	 _fc.setColor(_icm);
+             _fc.updateCanvas();
+             _fc.updateCanvas();
+            _window.pack();
+            _window.setVisible(true);
+        }
+        
+        menuBar.add(reset);
+        **/
         
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
