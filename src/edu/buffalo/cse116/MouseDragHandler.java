@@ -21,6 +21,12 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
+		int newMaxX = startX > arg0.getX() ? startX : arg0.getX();
+		int newMinX = startX < arg0.getX() ? startX : arg0.getX();
+		int newMaxY = startY > arg0.getY() ? startY : arg0.getY();
+		int newMinY = startY < arg0.getY() ? startY : arg0.getY();
+		
+		
 		
 	}
 

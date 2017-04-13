@@ -1,22 +1,25 @@
 package edu.buffalo.cse116;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.IndexColorModel;
-import edu.buffalo.cse116.MouseDragHandler;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.event.MenuDragMouseListener;
 
 /* This class will visualize the basic set up for Menu Bar.
  * for each menus are added to the menu bar such as file, fractal, color
@@ -43,6 +46,7 @@ public class UI implements ActionListener {
 	JPanel _mainPanel;
 	JPanel _buttonGrid;
 	FractalCanvas _fc;
+	JLayeredPane _layeredPane;
 	IndexColorModel _icm;
 	double _currentXMax;
 	double _currentXMin;
@@ -69,6 +73,9 @@ public class UI implements ActionListener {
         _model = new PixelMatrix(1024,1024);
         _fc = new FractalCanvas();
         _window.add(_fc);
+        _layeredPane = new JLayeredPane();
+        _layeredPane.setBounds(_fc.getX(), _fc.getY(), _fc.getWidth(), _fc.getHeight());
+        //_window.add(_layeredPane);
         //
         //
         //file
@@ -242,6 +249,7 @@ public class UI implements ActionListener {
         
         MouseDragHandler itchy = new MouseDragHandler(this);
         _fc.addMouseListener(itchy);
+        _layeredPane.addMouseListener(itchy);
         
         /*
          * @author Baker Brett
@@ -385,6 +393,12 @@ public class UI implements ActionListener {
        _window.setVisible(true);
 		
 	}
+	
+	public void drawZoomBox(int minX, int minY, int maxX, int maxY){
+		RectangleComp box = new RectangleComp(minX, minY, maxX - minX, maxY - minY);
+		_layeredPane.add(box);
+	}
+
 	
 	public void resetZoom(){
 		if (_mostRecentEscape == 0) {
