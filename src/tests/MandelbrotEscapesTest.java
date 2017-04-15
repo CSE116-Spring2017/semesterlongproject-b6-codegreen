@@ -243,7 +243,7 @@ public class MandelbrotEscapesTest {
 		PixelMatrix px = new PixelMatrix(512, 512);
 		px.setEscapeDistance(2);
 		int[][] constant = px.mandelbrotEscapes(135, -2.15, 0.6, -1.3, 1.3);
-		assertEquals(constant[203][483], 135);
+		assertEquals(constant[460][242], 135);
 
 	}
 }

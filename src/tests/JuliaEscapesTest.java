@@ -185,6 +185,6 @@ public class JuliaEscapesTest {
 		PixelMatrix px = new PixelMatrix(512,512);
 		px.setEscapeDistance(2);
 		int[][] constant = px.multibrotEscapes(135, -1.7, 1.7, -1.0, 1.0);
-		assertEquals(constant[432][234],135);
+		assertEquals(constant[314][196],135);
 	}
 }
