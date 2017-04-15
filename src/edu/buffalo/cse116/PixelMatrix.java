@@ -133,6 +133,7 @@ public class PixelMatrix {
 	  * @param yMin: minimum y coordinate
 	  * @param yMax: maximum y coordinate
 	  * @return array of escape values
+	  *
 	  */
 	public int[][] burningShipEscapes( int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
