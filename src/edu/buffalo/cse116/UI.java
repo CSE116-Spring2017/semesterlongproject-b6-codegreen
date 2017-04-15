@@ -54,6 +54,7 @@ public class UI implements ActionListener {
 	double _currentYMin;
 
 	private double _escapeDistance;
+	private int _escapeTime;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE = 2;
@@ -303,7 +304,61 @@ public class UI implements ActionListener {
         menuBar.add(set);
         menuBar.add(et);
         menuBar.add(wrongAnswer);
-        
+        //----------------------------------------------------------
+	/*
+         * @author Yongbong Kwon
+         * 
+         * JTextField is added to provide input for user
+         * button is added to execute based on the user's input 
+         * */
+       //-------------------------------------------------------------------------------------------------------------------- 
+        /*
+        JTextField t_jtxt = new JTextField("Enter Time", 10);
+        JButton t_set = new JButton("Set Time");
+        JLabel wrong_Answer = new JLabel("");
+        t_set.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+            	if(t_jtxt.getText().equals("Enter Time")){
+            		t_jtxt.setText("255");
+            	}
+            	else if(Integer.parseDouble(t_jtxt.getText()) > 0 && Integer.parseDouble(t_jtxt.getText()) <= 255){
+            		wrongAnswer.setText("");
+            	_escapeTime = Integer.parseDouble(t_jtxt.getText());
+            	_model = new PixelMatrix(512,512);
+            	int escpTime = _model.setEscapeTime(_escapeTime);
+               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+            	if (_mostRecentEscape == 0) {
+            		_fc.setFractal(_model.mandelbrotEscapes(escpTime,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else if(_mostRecentEscape == 1) {
+            		_fc.setFractal(_model.juliaEscapes(escpTime,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else if(_mostRecentEscape == 2) {
+            		_fc.setFractal(_model.burningShipEscapes(escpTime,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else {
+            		_fc.setFractal(_model.multibrotEscapes(escpTime,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            		
+            	}
+                _fc.setColor(_icm);
+                _fc.updateCanvas();
+                _fc.updateCanvas();
+               _window.pack();
+               _window.setVisible(true);
+            	}
+            	else {
+            		wrongAnswer.setText("Invalid Selection");
+            		_window.pack();
+            	}
+            	
+            }
+         });
+        menuBar.add(set);
+        menuBar.add(et);
+        menuBar.add(wrongAnswer);
+        */	
+	//------------------------------------------------------------------------------------------------------------	
         /**JButton reset = new JButton("Reset Zoom");
         reset.addActionListener(new ActionListener());
         @Override
