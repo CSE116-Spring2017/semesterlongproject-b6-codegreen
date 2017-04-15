@@ -9,7 +9,7 @@ public class PixelMatrix {
 	int _yDim;
 	UI _observer;
 	double _escapeDistance;
-	int -escapeTime;
+	int _escapeTime;
 	
 	public PixelMatrix(int x, int y){
 		_escapeDistance = 2;
@@ -75,7 +75,7 @@ public class PixelMatrix {
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
 				retVal[x][y] = passes;
-				setEscapeTime(masSteps);		
+				setEscapeTime(maxSteps);		
 			}
 		}
 		return retVal;
@@ -117,7 +117,7 @@ public class PixelMatrix {
 						dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 					}
 					retVal[x][y] = passes;
-					setEscapeTime(masSteps);		
+					setEscapeTime(maxSteps);		
 				}
 			}
 			return retVal;
@@ -159,7 +159,7 @@ public class PixelMatrix {
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
 				retVal[x][y] = passes;
-				setEscapeTime(masSteps);		
+				setEscapeTime(maxSteps);		
 			
 			}
 		}
@@ -201,7 +201,7 @@ public class PixelMatrix {
 					dist = Math.sqrt((xCalc*xCalc) + (yCalc*yCalc));	
 				}
 				retVal[x][y] = passes;
-				setEscapeTime(masSteps);		
+				setEscapeTime(maxSteps);		
 			
 			}
 		}
