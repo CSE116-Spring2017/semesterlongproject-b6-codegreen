@@ -26,7 +26,7 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 		int newMaxY = startY > arg0.getY() ? startY : arg0.getY();
 		int newMinY = startY < arg0.getY() ? startY : arg0.getY();
 		
-		
+		_ui.showCoordinates(startX,startY,arg0.getX(),arg0.getY());
 		
 	}
 
@@ -72,6 +72,7 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 		if(!(endX == startX && endY == startY) && SwingUtilities.isLeftMouseButton(arg0)){
 			_ui.zoomIn(startX, startY, endX, endY);
 		}
+		_ui.showCoordinates(0,0,0,0);
 	}
 
 }

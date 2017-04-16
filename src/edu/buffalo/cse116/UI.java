@@ -43,11 +43,13 @@ public class UI implements ActionListener {
 	PixelMatrix _model;
 	// UI elements
 	JFrame _window;
-	JPanel _mainPanel;
+	JPanel _mainPanel,coordPanel;
 	JPanel _buttonGrid;
+	JLabel coordLabelXY,coordLabelXXYY;
 	FractalCanvas _fc;
 	JLayeredPane _layeredPane;
 	IndexColorModel _icm;
+	JTextField coords;
 	double _currentXMax;
 	double _currentXMin;
 	double _currentYMax;
@@ -73,9 +75,20 @@ public class UI implements ActionListener {
         _icm = ColorModelFactory.createRainbowColorModel(256);
         _model = new PixelMatrix(1024,1024);
         _fc = new FractalCanvas();
-        _window.add(_fc);
+        _mainPanel = new JPanel();
+        coordPanel = new JPanel();
+        _mainPanel.add(_fc);
         _layeredPane = new JLayeredPane();
         _layeredPane.setBounds(_fc.getX(), _fc.getY(), _fc.getWidth(), _fc.getHeight());
+        coordLabelXY = new JLabel();
+		coordLabelXXYY = new JLabel();
+        coords = new JTextField("Clicked Coordinates");
+		//menuBar.add(coords);
+        menuBar.add(coordLabelXY);
+		menuBar.add(coordLabelXXYY);
+		coordLabelXY.setText("click xy");
+		coordLabelXXYY.setText("drag xy");
+        _window.add(_fc);
         //_window.add(_layeredPane);
         //
         //
@@ -251,6 +264,7 @@ public class UI implements ActionListener {
         MouseDragHandler itchy = new MouseDragHandler(this);
         _fc.addMouseListener(itchy);
         _layeredPane.addMouseListener(itchy);
+        _fc.addMouseMotionListener(itchy);
         
         /*
          * @author Baker Brett
@@ -375,9 +389,12 @@ public class UI implements ActionListener {
         menuBar.add(reset);
         **/
         
+        
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
         
+        _window.setPreferredSize(new Dimension(1000,1000));
+        _window.setResizable(false);
         _window.pack();
         _window.setVisible(true);
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -451,6 +468,20 @@ public class UI implements ActionListener {
 	public void drawZoomBox(int minX, int minY, int maxX, int maxY){
 		RectangleComp box = new RectangleComp(minX, minY, maxX - minX, maxY - minY);
 		_layeredPane.add(box);
+	}
+	
+	public void showCoordinates(int a, int b, int c,int d) {
+		double xStep,yStep;
+		xStep = _model.getXStep();
+		yStep = _model.getYStep();
+		coordLabelXY.setText("("+a*yStep+","+b*xStep+")");
+		coordLabelXXYY.setText("("+c*yStep+","+d*xStep+")");
+		if (a == 0 && b == 0 && c == 0 && d == 0) {
+			coordLabelXY.setText("click xy");
+			coordLabelXXYY.setText("drag xy");
+		}
+        _window.pack();
+        _window.setVisible(true);
 	}
 
 	

@@ -10,6 +10,7 @@ public class PixelMatrix {
 	UI _observer;
 	double _escapeDistance;
 	int _escapeTime;
+	double xStep,yStep;
 	
 	public PixelMatrix(int x, int y){
 		_escapeDistance = 2;
@@ -52,8 +53,8 @@ public class PixelMatrix {
 		
 			
 		//This needs to be in every set 
-		double xStep = (xMax - xMin) / _xDim;
-		double yStep = (yMax - yMin) / _yDim;
+		 xStep = (xMax - xMin) / _xDim;
+		 yStep = (yMax - yMin) / _yDim;
 		
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
@@ -97,8 +98,8 @@ public class PixelMatrix {
 	 public int[][] juliaEscapes( int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 			int[][] retVal = new int[_m.length][_m[0].length];
 			
-			double xStep = (xMax - xMin) / _xDim;
-			double yStep = (yMax - yMin) / _yDim;
+			xStep = (xMax - xMin) / _xDim;
+			yStep = (yMax - yMin) / _yDim;
 			
 			for(int x = 0; x < _m.length; x++){
 				for(int y = 0; y < _m[0].length; y++){
@@ -138,8 +139,8 @@ public class PixelMatrix {
 	public int[][] burningShipEscapes( int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
-		double xStep = (xMax - xMin) / _xDim;
-		double yStep = (yMax - yMin) / _yDim;
+		xStep = (xMax - xMin) / _xDim;
+		yStep = (yMax - yMin) / _yDim;
 			
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
@@ -180,8 +181,8 @@ public class PixelMatrix {
 	public int[][] multibrotEscapes( int maxSteps, double xMin, double xMax, double yMin, double yMax){
 		int[][] retVal = new int[_m.length][_m[0].length];
 			
-		double xStep = (xMax - xMin) / _xDim;
-		double yStep = (yMax - yMin) / _yDim;
+		xStep = (xMax - xMin) / _xDim;
+		yStep = (yMax - yMin) / _yDim;
 			
 		for(int x = 0; x < _m.length; x++){
 			for(int y = 0; y < _m[0].length; y++){
@@ -206,6 +207,14 @@ public class PixelMatrix {
 			}
 		}
 		return retVal;
+	}
+	
+	public double getXStep() {
+		return xStep;
+	}
+	
+	public double getYStep() {
+		return yStep;
 	}
 	
 }
