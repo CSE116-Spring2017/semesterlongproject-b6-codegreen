@@ -73,7 +73,7 @@ public class UI implements ActionListener {
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
         _window = new JFrame("Fractals");  
         _icm = ColorModelFactory.createRainbowColorModel(256);
-        _model = new PixelMatrix(1024,1024);
+        _model = new PixelMatrix(2048,2048);
         _fc = new FractalCanvas();
         _mainPanel = new JPanel();
         coordPanel = new JPanel();
