@@ -8,7 +8,7 @@ import javax.swing.SwingWorker;
  *
  * @author Matthew Hertz
  */
-public class WorkerResult extends SwingWorker {
+public class WorkerResult extends SwingWorker<WorkerResult,Void> {
   /** Index at which these escape times will need to be stored in the main fractal array. */
   private int firstRow;
 
@@ -56,7 +56,8 @@ public class WorkerResult extends SwingWorker {
   }
 
 @Override
-protected Object doInBackground() throws Exception {
+protected WorkerResult doInBackground() throws Exception {
+	
 	return null;
 }
 }

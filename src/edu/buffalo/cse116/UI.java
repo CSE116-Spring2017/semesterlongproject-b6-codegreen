@@ -57,6 +57,7 @@ public class UI implements ActionListener {
 
 	private double _escapeDistance;
 	private int _escapeTime;
+	private int _threadCount;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE = 2;
@@ -175,13 +176,19 @@ public class UI implements ActionListener {
         manE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);
+        	   _model = new PixelMatrix(512,512); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               _model.setEscapeDistance(_escapeDistance);
               _currentXMin = -2.15;
               _currentXMax = 0.6;
               _currentYMin = -1.3;
               _currentYMax = 1.3;
+              
+              //get tThread Count
+              //Instanitate SwingWorker[Thread];
+              //generatFractal()
+              //clearPool()
+              
               _fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
               _mostRecentEscape = 0;
               _fc.setColor(_icm);
@@ -198,7 +205,7 @@ public class UI implements ActionListener {
         julE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);
+        	   _model = new PixelMatrix(512,512); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
         	   _currentXMin = -1.7;
@@ -222,7 +229,7 @@ public class UI implements ActionListener {
         burE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);
+        	   _model = new PixelMatrix(512,512);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
         	   _currentXMin = -1.8;
@@ -244,7 +251,7 @@ public class UI implements ActionListener {
         mulE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);
+        	   _model = new PixelMatrix(512,512);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
         	   _currentXMin = -1;
                _currentXMax = 1;
@@ -286,7 +293,7 @@ public class UI implements ActionListener {
             	else if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
             		wrongAnswer.setText("");
             	_escapeDistance = Double.parseDouble(et.getText());
-            	_model = new PixelMatrix(512,512);
+            	_model = new PixelMatrix(2048,2048);
             	_model.setEscapeDistance(_escapeDistance);
                //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
             	if (_mostRecentEscape == 0) {
@@ -339,7 +346,7 @@ public class UI implements ActionListener {
             	else if(Integer.parseInt(t_jtxt.getText()) > 0 && Integer.parseInt(t_jtxt.getText()) <= 255){
             		wrong_Answer.setText("");
             		_escapeTime = Integer.parseInt(t_jtxt.getText());
-            		_model = new PixelMatrix(512,512);
+            		_model = new PixelMatrix(2048,2048);
             		_model.setEscapeTime(_escapeTime);
             		//_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
             		if (_mostRecentEscape == 0) {
@@ -388,12 +395,55 @@ public class UI implements ActionListener {
         
         menuBar.add(reset);
         **/
-        
+        JTextField threads = new JTextField("Enter Thread Count", 10);
+        JButton setThread = new JButton("Set ThreadCount");
+        JLabel wrongAnswer_ = new JLabel("");
+        set.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+            	if(threads.getText().equals("Enter Thread Count")){
+            		threads.setText("1");
+            	}
+            	else if(Integer.parseInt(threads.getText()) >= 1 && Integer.parseInt(threads.getText()) <= 128){
+            		wrongAnswer_.setText("");
+            	_threadCount = Integer.parseInt(threads.getText());
+            	_model = new PixelMatrix(2048,2048);
+            	_model.setThreadCount(_threadCount);
+               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
+            	if (_mostRecentEscape == 0) {
+            		_fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else if(_mostRecentEscape == 1) {
+            		_fc.setFractal(_model.juliaEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else if(_mostRecentEscape == 2) {
+            		_fc.setFractal(_model.burningShipEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            	}
+            	else {
+            		_fc.setFractal(_model.multibrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
+            		
+            	}
+                _fc.setColor(_icm);
+                _fc.updateCanvas();
+                _fc.updateCanvas();
+               _window.pack();
+               _window.setVisible(true);
+            	}
+            	else {
+            		wrongAnswer_.setText("Invalid Selection");
+            		_window.pack();
+            	}
+            	
+            }
+         });
+        menuBar.add(setThread);
+        menuBar.add(threads);
+        menuBar.add(wrongAnswer);
         
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
         
-        _window.setPreferredSize(new Dimension(1000,1000));
+        _window.setPreferredSize(new Dimension(2048,2048));
         _window.setResizable(false);
         _window.pack();
         _window.setVisible(true);
@@ -520,6 +570,5 @@ public class UI implements ActionListener {
        _window.pack();
        _window.setVisible(true);
 	}
-
 
 }
