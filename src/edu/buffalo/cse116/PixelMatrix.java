@@ -10,6 +10,7 @@ public class PixelMatrix {
 	UI _observer;
 	double _escapeDistance;
 	int _escapeTime;
+	int _threadCount;
 	double xStep,yStep;
 	
 	public PixelMatrix(int x, int y){
@@ -35,6 +36,11 @@ public class PixelMatrix {
 	public void setEscapeTime(int t){
 		_escapeTime = t;
 	}
+	
+	public void setThreadCount(int c){
+		_threadCount = c;
+	}
+	
 	
 	 /*
 	  * a method that returns a matrix of the mandlebrot escape time values
