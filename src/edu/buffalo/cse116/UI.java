@@ -61,6 +61,7 @@ public class UI implements ActionListener {
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE = 2;
+	private int pixelDimX = 2048;
 	int _mostRecentEscape;
 
 	/*
@@ -74,7 +75,7 @@ public class UI implements ActionListener {
         JMenuBar menuBar = new JMenuBar(); // menubar FTW yea~
         _window = new JFrame("Fractals");  
         _icm = ColorModelFactory.createRainbowColorModel(256);
-        _model = new PixelMatrix(2048,2048); //makes it 2048 pixels by 2048 pixels
+        _model = new PixelMatrix(pixelDimX,pixelDimX); //makes it 2048 pixels by 2048 pixels
         _fc = new FractalCanvas();
         _mainPanel = new JPanel();
         coordPanel = new JPanel();
@@ -176,7 +177,7 @@ public class UI implements ActionListener {
         manE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
+        	   _model = new PixelMatrix(pixelDimX,pixelDimX); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
               //_window.add(new FractalCanvas(_model.mandelbrotEscapes(2,255,-2.15,.6,-1.3,1.3), ColorModelFactory.createRainbowColorModel(256)));
               _model.setEscapeDistance(_escapeDistance);
               _currentXMin = -2.15;
@@ -205,7 +206,7 @@ public class UI implements ActionListener {
         julE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
+        	   _model = new PixelMatrix(pixelDimX,pixelDimX); //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.juliaEscapes(2, 255, -1.7, 1.7, -1.0, 1.0), ColorModelFactory.createRainbowColorModel(256)));
         	   _currentXMin = -1.7;
@@ -229,7 +230,7 @@ public class UI implements ActionListener {
         burE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
+        	   _model = new PixelMatrix(pixelDimX,pixelDimX);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
               //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
         	   _currentXMin = -1.8;
@@ -251,7 +252,7 @@ public class UI implements ActionListener {
         mulE.addActionListener(new ActionListener(){
            @Override
            public void actionPerformed(ActionEvent e){
-        	   _model = new PixelMatrix(512,512);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
+        	   _model = new PixelMatrix(pixelDimX,pixelDimX);  //I DONT KNOW WHY BUT ONLY NUMBERS < 512 WORK
         	   _model.setEscapeDistance(_escapeDistance);
         	   _currentXMin = -1;
                _currentXMax = 1;
@@ -293,7 +294,7 @@ public class UI implements ActionListener {
             	else if(Double.parseDouble(et.getText()) > 0 && Double.parseDouble(et.getText()) <= 255){
             		wrongAnswer.setText("");
             	_escapeDistance = Double.parseDouble(et.getText());
-            	_model = new PixelMatrix(2048,2048);
+            	_model = new PixelMatrix(pixelDimX,pixelDimX);
             	_model.setEscapeDistance(_escapeDistance);
                //_window.add(new FractalCanvas(_model.burningShipEscapes(2, 255, -1.8, -1.7, -0.08, 0.025), ColorModelFactory.createRainbowColorModel(256)));
             	if (_mostRecentEscape == 0) {
@@ -443,8 +444,8 @@ public class UI implements ActionListener {
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
         
-        _window.setPreferredSize(new Dimension(2048,2048));
-        _window.setResizable(false);
+        //_window.setPreferredSize(new Dimension(2048,2048));
+        //_window.setResizable(false);
         _window.pack();
         _window.setVisible(true);
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

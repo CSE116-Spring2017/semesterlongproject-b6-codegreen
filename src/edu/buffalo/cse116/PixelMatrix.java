@@ -21,6 +21,8 @@ public class PixelMatrix {
 		_m = matrix;
 		_xDim = x;
 		_yDim = y;
+		
+		System.out.println("created pixelMatrix of " + x + "," + y + " dimensions");
 	}
 	
 	public int[][] giveGrid() {
@@ -57,7 +59,7 @@ public class PixelMatrix {
 	public int[][] mandelbrotEscapes( int maxSteps, double xMin, double xMax, double yMin, double yMax ){
 		int[][] retVal = _m;
 		
-			
+		System.out.println("Start mand with dimensions " + _xDim + "," + _yDim);
 		//This needs to be in every set 
 		 xStep = (xMax - xMin) / _xDim;
 		 yStep = (yMax - yMin) / _yDim;
@@ -85,6 +87,8 @@ public class PixelMatrix {
 				setEscapeTime(maxSteps);		
 			}
 		}
+		System.out.println("Actual Size: " + retVal.length + "," + retVal[0].length);
+		System.out.println("Finished!");
 		return retVal;
 	
 	//:D

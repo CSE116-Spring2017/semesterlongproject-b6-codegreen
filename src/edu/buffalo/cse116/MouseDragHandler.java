@@ -33,7 +33,7 @@ public class MouseDragHandler implements MouseListener, MouseMotionListener {
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0.getX()+","+arg0.getY());
+		//System.out.println(arg0.getX()+","+arg0.getY());
 
 	}
 
