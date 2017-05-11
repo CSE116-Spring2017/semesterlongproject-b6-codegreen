@@ -82,6 +82,7 @@ public class UI implements ActionListener {
         _fc = new FractalCanvas();
         _mainPanel = new JPanel();
         coordPanel = new JPanel();
+        _bigPanel = new JPanel();
         _mainPanel.add(_fc);
         _layeredPane = new JLayeredPane();
         _layeredPane.setBounds(_fc.getX(), _fc.getY(), _fc.getWidth(), _fc.getHeight());
@@ -456,13 +457,14 @@ public class UI implements ActionListener {
         menuBar.add(wrongAnswer);
         
         menuBar.setLayout(new FlowLayout());
-        _bigPanel.add(menuBar);
+        _window.setJMenuBar(menuBar);
         _bigPanel.add(_mainPanel);
         _bigPanel.add(coordPanel);
         
-        
+        _window.add(_bigPanel);
         //_window.setPreferredSize(new Dimension(2048,2048));
         //_window.setResizable(false);
+        
         _window.pack();
         _window.setVisible(true);
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
