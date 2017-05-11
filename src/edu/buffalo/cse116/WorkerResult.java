@@ -2,6 +2,7 @@ package edu.buffalo.cse116;
 
 import javax.swing.SwingWorker;
 
+
 /**
  * Instances of this class represent the results of a thread's escape time calculations. Each instance stores the 2-d
  * array of escape times as well as the index in the main fractal at which the data should be stored.
@@ -14,10 +15,12 @@ public class WorkerResult extends SwingWorker<WorkerResult,Void> {
 
   /** Escape times calculated by the thread and returned to the compute pool. */
   private int[][] data;
+  
+  private UI _ui;
 
   /**
-   * Create a new instance of these results. This will store the starting index for these results and the escape times
-   * calculated for the associated pixels.
+   * Create a new instance of these results. This will store the starting index for these results and the 
+   * escape times calculated for the associated pixels.
    *
    * @param start Index at which these results should appear in the actual fractal
    * @param results Escape times calculated for the rows starting at the specified index
@@ -57,7 +60,9 @@ public class WorkerResult extends SwingWorker<WorkerResult,Void> {
 
 @Override
 protected WorkerResult doInBackground() throws Exception {
-	
+	//for (int i = 0; i<_ui._threadCount; i++){
+	//	= 2048/_ui._threadCount + 2048%_ui._threadCount;
+	//}
 	return null;
 }
 }

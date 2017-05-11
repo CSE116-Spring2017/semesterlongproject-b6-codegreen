@@ -20,6 +20,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingWorker;
+
+import edu.buffalo.fractal.ComputePool;
 
 /* This class will visualize the basic set up for Menu Bar.
  * for each menus are added to the menu bar such as file, fractal, color
@@ -57,7 +60,7 @@ public class UI implements ActionListener {
 
 	private double _escapeDistance;
 	private int _escapeTime;
-	private int _threadCount;
+	int _threadCount;
 	static int ROWS = 2;
 	static int COLUMNS = 1;
 	static int BUTTON_SIZE = 2;
@@ -185,10 +188,21 @@ public class UI implements ActionListener {
               _currentYMin = -1.3;
               _currentYMax = 1.3;
               
-              //get tThread Count
+              _model.setThreadCount(_threadCount);
               //Instanitate SwingWorker[Thread];
+              SwingWorker[] SwingArray = new SwingWorker[_threadCount];
+              
+              //for (int i = 0; i<_ui._threadCount; i++){
+          		//= 2048/_ui._threadCount + 2048%_ui._threadCount;
+          	  //}
+              
               //generatFractal()
+              ComputePool computePool = new ComputePool();
+              computePool.generateFractal(_threadCount, SwingArray);
               //clearPool()
+              computePool.clearPool();
+              
+              
               
               _fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));
               _mostRecentEscape = 0;
