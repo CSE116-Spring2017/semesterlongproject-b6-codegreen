@@ -464,8 +464,8 @@ public class UI implements ActionListener {
         _bigPanel.add(coordPanel, BorderLayout.PAGE_END);
         
         _window.add(_bigPanel);
-        _window.setPreferredSize(new Dimension(1024,1024));
-        //_window.setResizable(false);
+        //_window.setPreferredSize(new Dimension(1024,1024));
+        _window.setResizable(false);
         
         _window.pack();
         _window.setVisible(true);
