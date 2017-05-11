@@ -1,5 +1,6 @@
 package edu.buffalo.cse116;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -458,11 +459,12 @@ public class UI implements ActionListener {
         
         menuBar.setLayout(new FlowLayout());
         _window.setJMenuBar(menuBar);
-        _bigPanel.add(_mainPanel);
-        _bigPanel.add(coordPanel);
+        _bigPanel.setLayout(new BorderLayout());
+        _bigPanel.add(_mainPanel, BorderLayout.CENTER);
+        _bigPanel.add(coordPanel, BorderLayout.PAGE_END);
         
         _window.add(_bigPanel);
-        //_window.setPreferredSize(new Dimension(2048,2048));
+        _window.setPreferredSize(new Dimension(1024,1024));
         //_window.setResizable(false);
         
         _window.pack();
