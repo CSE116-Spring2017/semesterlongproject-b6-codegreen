@@ -5,5 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="/home/ethan/git/semesterlongproject-b6-codegreen/FractalPanel.jar"/>
 	<classpathentry kind="lib" path="/home/ethan/git/semesterlongproject-b6-codegreen/FractalThreading.jar"/>
+	<classpathentry kind="lib" path="src/edu/buffalo/cse116/FractalPanel.jar"/>
+	<classpathentry kind="lib" path="src/edu/buffalo/cse116/FractalThreading.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
