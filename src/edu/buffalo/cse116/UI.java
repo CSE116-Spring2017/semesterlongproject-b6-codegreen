@@ -43,7 +43,7 @@ public class UI implements ActionListener {
 	PixelMatrix _model;
 	// UI elements
 	JFrame _window;
-	JPanel _mainPanel,coordPanel;
+	JPanel _mainPanel,_coordPanel,_menuPanel,_bigPanel;
 	JPanel _buttonGrid;
 	JLabel coordLabelXY,coordLabelXXYY;
 	FractalCanvas _fc;
@@ -78,7 +78,9 @@ public class UI implements ActionListener {
         _model = new PixelMatrix(pixelDimX,pixelDimX); //makes it 2048 pixels by 2048 pixels
         _fc = new FractalCanvas();
         _mainPanel = new JPanel();
-        coordPanel = new JPanel();
+        _coordPanel = new JPanel();
+        _menuPanel = new JPanel();
+        _bigPanel = new JPanel();
         _mainPanel.add(_fc);
         _layeredPane = new JLayeredPane();
         _layeredPane.setBounds(_fc.getX(), _fc.getY(), _fc.getWidth(), _fc.getHeight());
@@ -86,11 +88,11 @@ public class UI implements ActionListener {
 		coordLabelXXYY = new JLabel();
         coords = new JTextField("Clicked Coordinates");
 		//menuBar.add(coords);
-        menuBar.add(coordLabelXY);
-		menuBar.add(coordLabelXXYY);
-		coordLabelXY.setText("click xy");
+        _coordPanel.add(coordLabelXY);
+		_coordPanel.add(coordLabelXXYY);
+		coordLabelXY.setText("click xy                                                                                                               ");
 		coordLabelXXYY.setText("drag xy");
-        _window.add(_fc);
+        //_window.add(_mainPanel);
         //_window.add(_layeredPane);
         //
         //
@@ -442,10 +444,15 @@ public class UI implements ActionListener {
         menuBar.add(wrongAnswer);
         
         menuBar.setLayout(new FlowLayout());
-        _window.setJMenuBar(menuBar);
+        //_window.setJMenuBar(menuBar);
+        _menuPanel.add(menuBar);
+        _bigPanel.add(_menuPanel);
+        _bigPanel.add(_mainPanel);
+        _bigPanel.add(_coordPanel);
         
-        //_window.setPreferredSize(new Dimension(2048,2048));
-        //_window.setResizable(false);
+        _window.add(_bigPanel);
+        _window.setPreferredSize(new Dimension(1024,1024));
+        _window.setResizable(false);
         _window.pack();
         _window.setVisible(true);
         _window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
