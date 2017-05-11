@@ -46,7 +46,7 @@ public class UI implements ActionListener {
 	PixelMatrix _model;
 	// UI elements
 	JFrame _window;
-	JPanel _mainPanel,coordPanel;
+	JPanel _mainPanel,coordPanel,_bigPanel;
 	JPanel _buttonGrid;
 	JLabel coordLabelXY,coordLabelXXYY;
 	FractalCanvas _fc;
@@ -89,11 +89,11 @@ public class UI implements ActionListener {
 		coordLabelXXYY = new JLabel();
         coords = new JTextField("Clicked Coordinates");
 		//menuBar.add(coords);
-        menuBar.add(coordLabelXY);
-		menuBar.add(coordLabelXXYY);
+        coordPanel.add(coordLabelXY);
+		coordPanel.add(coordLabelXXYY);
 		coordLabelXY.setText("click xy");
 		coordLabelXXYY.setText("drag xy");
-        _window.add(_fc);
+        _mainPanel.add(_fc);
         //_window.add(_layeredPane);
         //
         //
@@ -456,7 +456,10 @@ public class UI implements ActionListener {
         menuBar.add(wrongAnswer);
         
         menuBar.setLayout(new FlowLayout());
-        _window.setJMenuBar(menuBar);
+        _bigPanel.add(menuBar);
+        _bigPanel.add(_mainPanel);
+        _bigPanel.add(coordPanel);
+        
         
         //_window.setPreferredSize(new Dimension(2048,2048));
         //_window.setResizable(false);
