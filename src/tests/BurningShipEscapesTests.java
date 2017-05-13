@@ -19,12 +19,12 @@ public class BurningShipEscapesTests {
 	public void pixelCoordinateTranslationTest1() {
 		double dist = 0.0;
 		int passes = 0;
-		_canvas = new PixelMatrix(512, 512);
+		_canvas = new PixelMatrix(2048, 2048);
 		_canvas.setEscapeDistance(2);
 		int[][] constant = _canvas.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 
-		double xStep = (1.7 - (-1.7)) / 512;
-		double yStep = (1.0 - (-1.0)) / 512;
+		double xStep = (1.7 - (-1.7)) / 2048;
+		double yStep = (1.0 - (-1.0)) / 2048;
 
 		double xCalc = -1.7 + (0 * xStep); // 45
 		double yCalc = 1.0 - (0 * yStep); // and 23 are here, is this just to
@@ -43,7 +43,7 @@ public class BurningShipEscapesTests {
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		}
-		System.out.println(passes + " " + constant[0][0]);
+		//System.out.println(passes + " " + constant[0][0]);
 
 		// point (0,0)
 		assertEquals(constant[0][0], passes);
@@ -54,12 +54,12 @@ public class BurningShipEscapesTests {
 	public void pixelCoordinateTranslation2() {
 		double dist = 0.0;
 		int passes = 0;
-		_canvas = new PixelMatrix(512, 512);
+		_canvas = new PixelMatrix(2048, 2048);
 		_canvas.setEscapeDistance(2);
 		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
 
-		double xStep = (1.7 - (-1.8)) / 512;
-		double yStep = (0.025 - (-0.08)) / 512;
+		double xStep = (1.7 - (-1.8)) / 2048;
+		double yStep = (0.025 - (-0.08)) / 2048;
 
 		double xCalc = -1.8 + (45 * xStep); 
 		double yCalc = 0.025 - (23 * yStep); 
@@ -78,25 +78,25 @@ public class BurningShipEscapesTests {
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		}
-		System.out.println(passes + " " + constant[45][23]);
+		//System.out.println(passes + " " + constant[45][23]);
 
 		// random point (x, y)
-		assertEquals(constant[45][23], passes);
+		assertEquals(constant[176][90], passes);
 	}
 	
 	@Test
 	public void pixelCoordinateTranslation3() {
 		double dist = 0.0;
 		int passes = 0;
-		_canvas = new PixelMatrix(512, 512);
+		_canvas = new PixelMatrix(2048, 2048);
 		_canvas.setEscapeDistance(2);
 		int[][] constant = _canvas.juliaEscapes(255, -1.8, 1.7, -0.08, 0.025);
 
-		double xStep = (1.7 - (-1.8)) / 512;
-		double yStep = (0.025 - (-0.08)) / 512;
+		double xStep = (1.7 - (-1.8)) / 2048;
+		double yStep = (0.025 - (-0.08)) / 2048;
 
-		double xCalc = -1.8 + (512 * xStep); 
-		double yCalc = 0.025 - (512 * yStep);
+		double xCalc = -1.8 + (2048 * xStep); 
+		double yCalc = 0.025 - (2048 * yStep);
 		
 		dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 
@@ -112,15 +112,15 @@ public class BurningShipEscapesTests {
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		}
-		System.out.println(passes + " " + constant[511][511]);
+		//System.out.println(passes + " " + constant[511][511]);
 
-		// point (512, 512)
-		assertEquals(constant[511][511], passes);
+		// point (2048, 2048)
+		assertEquals(constant[2044][2044], passes);
 	}
 	
 	@Test
 	public void noZeroOrOne() {
-		PixelMatrix p = new PixelMatrix(512,512);
+		PixelMatrix p = new PixelMatrix(2048,2048);
 		p.setEscapeDistance(2);
 		int[][] escapes = p.burningShipEscapes(255, -1.8, -1.7, -0.08, 0.025);
 		boolean badValue = false;
@@ -129,11 +129,11 @@ public class BurningShipEscapesTests {
 			for(int y = 0; y < escapes[0].length; y++){
 				if(escapes[x][y] == 0 || escapes[x][y] == 1){
 					badValue = true;
-					System.out.print(escapes[x][y] + " ");
+					//System.out.print(escapes[x][y] + " ");
 				}
-				System.out.print(escapes[x][y] + " ");
+				//System.out.print(escapes[x][y] + " ");
 			}
-			System.out.println("");
+			//System.out.println("");
 		}
 		
 		assertFalse(badValue);
@@ -143,25 +143,25 @@ public class BurningShipEscapesTests {
 
 	@Test
 	public void newPhaseTwoTest(){
-		PixelMatrix p = new PixelMatrix(512,512);
+		PixelMatrix p = new PixelMatrix(2048,2048);
 		p.setEscapeDistance(3);
 		int[][] escapes = p.burningShipEscapes(255, -1.8, -1.7, -0.08, 0.025);
 		
-		if(escapes[511][405] >= 10){
+		if(escapes[2044][1620] >= 10){
 			assertTrue(true);
 		}
 		else{
-			System.out.println(escapes[511][405]);
+			//System.out.println(escapes[511][405]);
 			assertTrue(false);
 		}
 	}
 	
 	@Test
 	public void phaseThreeEDTest() {
-		PixelMatrix px = new PixelMatrix(512,512);
+		PixelMatrix px = new PixelMatrix(2048,2048);
 		px.setEscapeDistance(2);
 		int[][] constant = px.burningShipEscapes(135, -1.8, -1.7, -0.08, 0.025);
-		assertEquals(constant[285][305],135);
+		assertEquals(constant[1140][1220],135);
 	}
 	
 }
