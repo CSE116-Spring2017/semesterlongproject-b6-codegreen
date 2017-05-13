@@ -465,6 +465,7 @@ public class UI implements ActionListener {
         
         _window.add(_bigPanel);
         //_window.setPreferredSize(new Dimension(1024,1024));
+        //_fc.setMinimumSize(new Dimension(1024,1024));
         _window.setResizable(false);
         
         _window.pack();
@@ -504,18 +505,18 @@ public class UI implements ActionListener {
 		_currentYMax = (newMaxY * yStep) + _currentYMin; //hello, JRE
 		_currentYMin = (newMinY * yStep) + _currentYMin;
 		
-		System.out.println("Mouse Max X: " + newMaxX);
-		System.out.println("Mouse Min X: " + newMinX);
-		System.out.println("Mouse Max Y: " + newMaxY);
-		System.out.println("Mouse Min Y: " + newMinY);
+		////System.out.println("Mouse Max X: " + newMaxX);
+		////System.out.println("Mouse Min X: " + newMinX);
+		////System.out.println("Mouse Max Y: " + newMaxY);
+		////System.out.println("Mouse Min Y: " + newMinY);
 		
-		System.out.println("currentXMax: " + _currentXMax);
-		System.out.println("currentXMin: " + _currentXMin);
-		System.out.println("currentYMax: " + _currentYMax);
-		System.out.println("currentYMin: " + _currentYMin);
-		System.out.println("Window X: " + windowXDim);
-		System.out.println("Window Y: " + windowYDim);
-		System.out.println("\n");
+		////System.out.println("currentXMax: " + _currentXMax);
+		////System.out.println("currentXMin: " + _currentXMin);
+		////System.out.println("currentYMax: " + _currentYMax);
+		////System.out.println("currentYMin: " + _currentYMin);
+		////System.out.println("Window X: " + windowXDim);
+		////System.out.println("Window Y: " + windowYDim);
+		////System.out.println("\n");
 		
 		if (_mostRecentEscape == 0) {
     		_fc.setFractal(_model.mandelbrotEscapes(255,_currentXMin,_currentXMax,_currentYMin,_currentYMax));

@@ -120,7 +120,7 @@ public class JuliaEscapesTest {
 		//System.out.println(passes + " " + constant[511][511]);
 
 		// point (2048, 2048)
-		assertEquals(constant[511][511], passes);
+		assertEquals(constant[2044][2044], passes);
 	}
 
 	/*
@@ -171,7 +171,7 @@ public class JuliaEscapesTest {
 		p.setEscapeDistance(3);
 		int[][] escapes = p.juliaEscapes(255, -1.7, 1.7, -1.0, 1.0);
 		
-		if(escapes[475][222] >= 10){
+		if(escapes[1900][888] >= 10){
 			assertTrue(true);
 		}
 		else{
@@ -185,6 +185,6 @@ public class JuliaEscapesTest {
 		PixelMatrix px = new PixelMatrix(2048,2048);
 		px.setEscapeDistance(2);
 		int[][] constant = px.multibrotEscapes(135, -1.7, 1.7, -1.0, 1.0);
-		assertEquals(constant[314][196],135);
+		assertEquals(constant[1256][784],135);
 	}
 }
